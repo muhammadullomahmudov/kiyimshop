@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="KWERT — Namangandagi premium unisex kiyim do'koni. Buyurtma: @kwert_admin">
+<title>KWERT Wear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: brutal stretched-type hero over a live 3D atlas-silk tee, then a dense catalog grid, process strip, cargo calc, and "Biz haqimizda" closing the page. Dark-first by brand choice (🖤). */
+:root{
+  --ink:#0f0d12; --ink2:#18141d; --ink3:#221c29; --line:#332b3c;
+  --bone:#efe9f1; --mute:#a197aa; --atlas:#e5336f; --saffron:#f2a634; --indigo:#5a5ee6; --ok:#4fd1a1;
+  --f-display:"Anybody","Arial Narrow",Impact,sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --r:14px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--ink);color:var(--bone);font-family:var(--f-body);font-size:15px;line-height:1.55;margin:0;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--saffron);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:20px}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--ink) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:62px}
+.logo{font-family:var(--f-display);font-weight:900;font-stretch:150%;font-size:22px;letter-spacing:-.02em;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--atlas);box-shadow:14px 0 0 var(--saffron);margin-right:16px;display:inline-block}
+.nav nav{display:flex;gap:22px;margin-left:auto}
+.nav nav a{text-decoration:none;color:var(--mute);font-weight:500;font-size:14px}
+.nav nav a:hover{color:var(--bone)}
+.cartbtn{display:flex;align-items:center;gap:8px;background:var(--bone);color:var(--ink);border:0;border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px}
+.cartbtn b{background:var(--atlas);color:#fff;min-width:22px;height:22px;border-radius:11px;display:grid;place-items:center;font-size:12px;padding:0 6px}
+@media (max-width:760px){.nav nav{display:none}.cartbtn{margin-left:auto}}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding-block:56px 40px;position:relative;z-index:2}
+.eyebrow{display:flex;gap:10px;align-items:center;color:var(--saffron)}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor}
+h1.big{font-family:var(--f-display);font-weight:900;font-stretch:150%;font-size:clamp(64px,13vw,190px);line-height:.82;letter-spacing:-.045em;margin:18px 0 0;text-wrap:balance}
+h1.big span{display:block}
+h1.big .outline{color:transparent;-webkit-text-stroke:2px var(--bone);font-stretch:62%;font-weight:800;letter-spacing:-.02em}
+h1.big .grad{background:linear-gradient(90deg,var(--atlas),var(--saffron) 55%,var(--indigo));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:46ch;color:var(--mute);font-size:17px;margin:22px 0 28px}
+.lead strong{color:var(--bone);font-weight:600}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 22px;font-weight:700;text-decoration:none;border:1px solid var(--line);background:transparent;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--atlas);border-color:var(--atlas);color:#fff}
+.btn.primary:hover{background:#f04680}
+.btn.ghost:hover{background:var(--ink3)}
+.stage{position:relative;aspect-ratio:1/1.05;max-width:100%;min-height:320px}
+.stage canvas{width:100%!important;height:100%!important;display:block;cursor:grab}
+.stage canvas:active{cursor:grabbing}
+.stage .tag{position:absolute;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--ink2);border:1px solid var(--line);padding:6px 10px;border-radius:8px;pointer-events:none}
+.stage .t1{top:12%;left:0}.stage .t2{bottom:16%;right:0}.stage .t3{bottom:4%;left:8%;color:var(--mute)}
+.heroStats{display:flex;gap:28px;flex-wrap:wrap;margin-top:34px}
+.heroStats div{display:grid}
+.heroStats b{font-family:var(--f-display);font-stretch:130%;font-size:30px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.heroStats span{color:var(--mute);font-size:13px}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.stage{max-width:520px;width:100%;margin:0 auto}}
+
+/* Marquee */
+.marquee{border-bottom:1px solid var(--line);overflow:hidden;background:var(--ink2)}
+.marquee .track{display:flex;gap:44px;padding:14px 0;width:max-content;animation:mq 38s linear infinite}
+.marquee span{font-family:var(--f-display);font-stretch:120%;font-weight:700;font-size:20px;white-space:nowrap;display:flex;align-items:center;gap:44px}
+.marquee span::after{content:"✦";color:var(--atlas)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding-block:72px}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+h2{font-family:var(--f-display);font-weight:900;font-stretch:135%;font-size:clamp(38px,6vw,72px);line-height:.9;letter-spacing:-.035em;margin:10px 0 0;text-wrap:balance}
+h2 em{font-style:normal;color:var(--atlas)}
+
+/* Filters */
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:500;color:var(--mute);display:flex;gap:6px;align-items:center}
+.chip small{font-family:var(--f-mono);font-size:11px;opacity:.7}
+.chip[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.search,.sel{background:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:9px 16px;color:var(--bone);font:inherit;font-size:14px}
+.search{flex:1;min-width:180px}
+.toolbar .right{display:flex;gap:10px;margin-left:auto;flex-wrap:wrap;flex:1;justify-content:flex-end;min-width:240px}
+
+/* Grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;text-align:left;padding:0;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--atlas) 60%,var(--line))}
+.card .vis{position:relative;aspect-ratio:4/4.4;max-width:100%;display:grid;place-items:center;overflow:hidden;background:var(--ink3)}
+.card .vis .ikat{position:absolute;inset:0;background-size:180px;opacity:.55;transition:transform .6s,opacity .3s;mix-blend-mode:screen}
+.card:hover .ikat{transform:scale(1.12) rotate(2deg);opacity:.8}
+.card .vis svg{position:relative;width:62%;height:auto;filter:drop-shadow(0 18px 24px rgba(0,0,0,.55));transition:transform .4s}
+.card:hover .vis svg{transform:translateY(-4px) rotate(-3deg) scale(1.04)}
+.card .pid{position:absolute;top:10px;left:10px;font-family:var(--f-mono);font-size:11px;background:rgba(15,13,18,.75);padding:4px 8px;border-radius:6px}
+.card .new{position:absolute;top:10px;right:10px;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;background:var(--saffron);color:var(--ink);padding:4px 8px;border-radius:6px;font-weight:600}
+.card .ph{position:absolute;bottom:10px;right:10px;font-family:var(--f-mono);font-size:11px;color:var(--bone);background:rgba(15,13,18,.75);padding:4px 8px;border-radius:6px}
+.card .body{padding:14px 16px 16px;display:grid;gap:4px}
+.card .cat{color:var(--mute);font-size:12px}
+.card .nm{font-weight:600;font-size:16px;line-height:1.25}
+.card .pr{font-family:var(--f-display);font-stretch:120%;font-weight:800;font-size:22px;margin-top:6px;font-variant-numeric:tabular-nums}
+.card .pr small{font-family:var(--f-body);font-weight:500;font-size:12px;color:var(--mute);margin-left:4px}
+.more{display:flex;justify-content:center;margin-top:30px}
+.empty{padding:40px;text-align:center;color:var(--mute);border:1px dashed var(--line);border-radius:var(--r)}
+
+/* Steps + calc */
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.how div{padding:24px;border-right:1px solid var(--line);display:grid;gap:8px;align-content:start}
+.how div:last-child{border-right:0}
+.how b{font-family:var(--f-display);font-stretch:150%;font-weight:900;font-size:44px;line-height:1;color:var(--atlas)}
+.how h3{margin:0;font-size:17px}
+.how p{margin:0;color:var(--mute);font-size:14px}
+@media (max-width:860px){.how{grid-template-columns:1fr 1fr}.how div:nth-child(2){border-right:0}.how div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:480px){.how{grid-template-columns:1fr}.how div{border-right:0;border-bottom:1px solid var(--line)}}
+.calc{margin-top:22px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;background:linear-gradient(120deg,color-mix(in srgb,var(--atlas) 22%,var(--ink2)),var(--ink2) 60%);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.calc label{display:grid;gap:10px;font-weight:600}
+.calc input[type=range]{width:100%;accent-color:var(--saffron)}
+.calc .res{text-align:right}
+.calc .res b{display:block;font-family:var(--f-display);font-stretch:130%;font-size:36px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}
+.calc .res span{color:var(--mute);font-size:13px}
+@media (max-width:600px){.calc{grid-template-columns:1fr}.calc .res{text-align:left}}
+
+/* About */
+.about{background:var(--ink2);border-top:1px solid var(--line)}
+.aboutGrid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.aboutGrid p{color:var(--mute);font-size:17px;max-width:52ch}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.facts div{border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.facts span{display:block;color:var(--mute);font-size:12px}
+.facts b{font-size:16px}
+.links{display:grid;gap:12px}
+.lnk{display:grid;grid-template-columns:48px 1fr auto;gap:14px;align-items:center;padding:16px;border:1px solid var(--line);border-radius:var(--r);text-decoration:none;background:var(--ink);transition:transform .2s,border-color .2s}
+.lnk:hover{transform:translateX(4px);border-color:var(--bone)}
+.lnk .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center}
+.lnk .ic svg{width:24px;height:24px}
+.lnk b{display:block;font-size:16px}
+.lnk span{color:var(--mute);font-size:13px;word-break:break-all}
+.lnk .arr{font-family:var(--f-mono);color:var(--mute)}
+.tg{background:#2aa3df}.ig{background:linear-gradient(135deg,#f9a03f,#e1306c 50%,#7232bd)}.adm{background:var(--atlas)}.otz{background:var(--saffron);color:var(--ink)}
+@media (max-width:860px){.aboutGrid{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--mute);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.footbig{font-family:var(--f-display);font-weight:900;font-stretch:150%;font-size:clamp(70px,20vw,280px);line-height:.8;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px var(--line);text-align:center;padding-block:30px 0;user-select:none;overflow:hidden}
+
+/* Modal + drawer */
+.scrim{position:fixed;inset:0;background:rgba(6,5,8,.72);backdrop-filter:blur(6px);z-index:60;display:flex;align-items:center;justify-content:center;padding:16px}
+.modal{background:var(--ink2);border:1px solid var(--line);border-radius:20px;width:min(1000px,100%);max-height:calc(100% - 20px);overflow:auto;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.modal .v3d{position:relative;background:var(--ink3);min-height:380px}
+.modal .v3d canvas{position:absolute;inset:0;width:100%!important;height:100%!important;cursor:grab}
+.modal .hint{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:var(--mute);pointer-events:none}
+.modal .info{padding:28px;display:grid;gap:16px;align-content:start;min-width:0}
+.x{position:absolute;top:12px;right:12px;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--ink);font-size:18px}
+.modal h3{font-family:var(--f-display);font-stretch:125%;font-weight:900;font-size:34px;line-height:.95;margin:0;letter-spacing:-.02em}
+.price{font-family:var(--f-display);font-stretch:120%;font-weight:800;font-size:30px;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--f-body);font-size:13px;color:var(--mute);font-weight:500}
+.lbl{font-weight:600;font-size:14px;display:flex;justify-content:space-between}
+.lbl a{color:var(--saffron);font-weight:500;font-size:13px}
+.sizes{display:flex;flex-wrap:wrap;gap:8px}
+.sz{min-width:52px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:transparent;font-family:var(--f-mono);font-weight:600}
+.sz[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:10px}
+.qty button{width:40px;height:42px;border:0;background:transparent;font-size:18px}
+.qty output{width:36px;text-align:center;font-family:var(--f-mono)}
+.inp{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:11px 14px;color:var(--bone);font:inherit;font-size:14px}
+.note{color:var(--mute);font-size:13px;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.note b{color:var(--bone)}
+.err{color:#ff8ca8;font-size:13px;min-height:1em}
+@media (max-width:780px){.modal{grid-template-columns:1fr}.modal .v3d{min-height:300px}}
+
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--ink2);border-left:1px solid var(--line);z-index:70;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawer header h3{margin:0;font-family:var(--f-display);font-stretch:130%;font-weight:900;font-size:26px}
+.drawer .items{flex:1;overflow:auto;padding:12px 20px;display:grid;gap:10px;align-content:start}
+.ci{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px}
+.ci .mini{width:56px;height:56px;border-radius:10px;background:var(--ink3);display:grid;place-items:center}
+.ci .mini svg{width:70%}
+.ci b{display:block;font-size:14px}
+.ci span{color:var(--mute);font-size:12px;font-family:var(--f-mono)}
+.ci button{border:0;background:transparent;color:var(--mute);font-size:13px;text-decoration:underline}
+.drawer .foot{padding:16px 20px;border-top:1px solid var(--line);display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;align-items:baseline}
+.tot b{font-family:var(--f-display);font-stretch:120%;font-size:26px;font-weight:900;font-variant-numeric:tabular-nums}
+.msgbox{font-family:var(--f-mono);font-size:12px;white-space:pre-wrap;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px;max-height:150px;overflow:auto;user-select:all}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--bone);color:var(--ink);padding:12px 18px;border-radius:999px;font-weight:600;z-index:90;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+</style>
+
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>KWERT</a>
+    <nav aria-label="Asosiy">
+      <a href="#katalog">Katalog</a>
+      <a href="#qanday">Qanday ishlaydi</a>
+      <a href="#biz">Biz haqimizda</a>
+    </nav>
+    <button class="cartbtn" id="openCart" aria-label="Savatchani ochish">Savatcha <b id="cartCount">0</b></button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow mono">Namangan 🇺🇿 · Premium · Unisex</div>
+        <h1 class="big"><span>KWERT</span><span class="outline">wear</span><span class="grad">drop</span></h1>
+        <p class="lead">Ko'chalar uchun premium kiyimlar: xudi, kurtka, baggy jinsi va krossovkalar. <strong>O'zbekiston bo'ylab 9–15 kunda</strong> yetkazib beramiz, kargo esa vazniga qarab hisoblanadi.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#katalog">Katalogni ko'rish →</a>
+          <a class="btn ghost" href="https://t.me/kwert_admin" target="_blank" rel="noopener">@kwert_admin</a>
+        </div>
+        <div class="heroStats">
+          <div><b id="statItems">0</b><span>model katalogda</span></div>
+          <div><b>371</b><span>rasm kanalda</span></div>
+          <div><b>14 000</b><span>so'm / 100 gr kargo</span></div>
+        </div>
+      </div>
+      <div class="stage" id="stage" aria-label="Aylantirsa bo'ladigan 3D futbolka">
+        <span class="tag t1">✦ 3D · aylantiring</span>
+        <span class="tag t2">Atlas naqsh · Kwert print</span>
+        <span class="tag t3">XS — 4XL</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+  <section id="katalog">
+    <div class="wrap">
+      <div class="sh">
+        <div><div class="eyebrow mono">Katalog</div><h2>Hamma <em>drop</em>lar</h2></div>
+        <p style="color:var(--mute);max-width:40ch;margin:0">Har bir model Telegram kanaldagi postdan olingan. Rasmlarni ko'rish uchun kartani oching va «Rasmlar» tugmasini bosing.</p>
+      </div>
+      <div class="toolbar">
+        <div class="chips" id="chips" role="group" aria-label="Turkum"></div>
+        <div class="right">
+          <input class="search" id="q" type="search" placeholder="Qidirish: xudi, jeans, #388…" aria-label="Qidirish">
+          <select class="sel" id="sort" aria-label="Saralash">
+            <option value="new">Avval yangilari</option>
+            <option value="lo">Narx: arzonidan</option>
+            <option value="hi">Narx: qimmatidan</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="more"><button class="btn ghost" id="moreBtn">Yana ko'rsatish</button></div>
+    </div>
+  </section>
+
+  <section id="qanday" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sh"><div><div class="eyebrow mono">Buyurtma jarayoni</div><h2>To'rt <em>qadam</em></h2></div></div>
+      <div class="how">
+        <div><b>1</b><h3>Tanlang</h3><p>Model, o'lcham va sonini tanlang. Bir nechta kiyimni savatchaga yig'sa bo'ladi.</p></div>
+        <div><b>2</b><h3>Yuboring</h3><p>«Buyurtma berish» tugmasi tayyor xabarni @kwert_admin lichkasiga ochadi.</p></div>
+        <div><b>3</b><h3>Tasdiqlang</h3><p>Admin bilan kelishasiz. Odatda 50% oldindan to'lov olinadi.</p></div>
+        <div><b>4</b><h3>Qabul qiling</h3><p>8–16 kun ichida O'zbekistonning istalgan joyiga yetkaziladi.</p></div>
+      </div>
+      <div class="calc">
+        <label for="w">Kargo kalkulyatori · vazn: <span id="wv" class="mono" style="color:var(--saffron)">700 gr</span>
+          <input id="w" type="range" min="100" max="3000" step="50" value="700">
+          <span style="color:var(--mute);font-weight:400;font-size:13px">Futbolka ≈ 250 gr · Xudi ≈ 700 gr · Kurtka ≈ 900 gr · Krossovka ≈ 1200 gr</span>
+        </label>
+        <div class="res"><b id="cv">98 000</b><span>so'm kargo (100 gr = 14 000 so'm)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="biz" class="about">
+    <div class="wrap">
+      <div class="aboutGrid">
+        <div>
+          <div class="eyebrow mono">Biz haqimizda</div>
+          <h2>Namangandan <em>butun</em> O'zbekistonga</h2>
+          <p>KWERT — Namangandagi premium unisex kiyim do'koni. Har hafta yangi drop chiqaramiz: anime xudilar, Porsche va Ferrari kurtkalari, baggy jinsilar, Y2K aksessuarlari va krossovkalar. Sifat rasmdagidek, hamma o'lchamlar bor.</p>
+          <div class="facts">
+            <div><span>Yetkazib berish</span><b>9–15 kun</b></div>
+            <div><span>Kargo</span><b>14 000 so'm / 100 gr</b></div>
+            <div><span>Hudud</span><b>O'zbekiston bo'ylab</b></div>
+            <div><span>O'lchamlar</span><b>XS dan 4XL gacha</b></div>
+          </div>
+        </div>
+        <div class="links">
+          <a class="lnk" href="https://t.me/kwert_wear" target="_blank" rel="noopener">
+            <span class="ic tg"><svg viewBox="0 0 24 24" fill="#fff"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.8-7.9c.4-.3-.1-.5-.6-.2L6.7 13.3l-4.6-1.4c-1-.3-1-1 .2-1.5L20.5 3.4c.9-.3 1.6.2 1.4.9z"/></svg></span>
+            <span><b>Telegram kanal</b><span>t.me/kwert_wear</span></span><span class="arr">↗</span>
+          </a>
+          <a class="lnk" href="https://www.instagram.com/kwert.wear/" target="_blank" rel="noopener">
+            <span class="ic ig"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg></span>
+            <span><b>Instagram</b><span>instagram.com/kwert.wear</span></span><span class="arr">↗</span>
+          </a>
+          <a class="lnk" href="https://t.me/kwert_admin" target="_blank" rel="noopener">
+            <span class="ic adm"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/></svg></span>
+            <span><b>Buyurtma uchun admin</b><span>@kwert_admin</span></span><span class="arr">↗</span>
+          </a>
+          <a class="lnk" href="https://t.me/kwert_otziv" target="_blank" rel="noopener">
+            <span class="ic otz"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>
+            <span><b>Mijozlar fikri</b><span>@kwert_otziv</span></span><span class="arr">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footbig" aria-hidden="true">KWERT</div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© 2026 KWERT · Namangan</span><span>Premium kiyimlar | Unisex</span></div></footer>
+
+<div class="scrim" id="pScrim" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pTitle">
+    <button class="x" id="pClose" aria-label="Yopish">✕</button>
+    <div class="v3d" id="v3d"><span class="hint mono">Sichqoncha yoki barmoq bilan aylantiring</span></div>
+    <div class="info">
+      <div class="mono" id="pMeta" style="color:var(--saffron)"></div>
+      <h3 id="pTitle"></h3>
+      <div class="price" id="pPrice"></div>
+      <div>
+        <div class="lbl"><span>O'lcham</span><span id="pSzHint" style="color:var(--mute);font-weight:400;font-size:13px"></span></div>
+        <div class="sizes" id="pSizes" style="margin-top:10px" role="group" aria-label="O'lcham"></div>
+      </div>
+      <div class="row">
+        <div class="qty"><button id="qm" aria-label="Kamaytirish">−</button><output id="qv">1</output><button id="qp" aria-label="Ko'paytirish">+</button></div>
+        <input class="inp" id="pColor" placeholder="Rang yoki izoh (ixtiyoriy)" style="flex:1;min-width:160px">
+      </div>
+      <div class="note" id="pNote"></div>
+      <div class="err" id="pErr"></div>
+      <div class="row">
+        <button class="btn primary" id="pBuy" style="flex:1;justify-content:center">Buyurtma berish →</button>
+        <button class="btn ghost" id="pAdd">+ Savatcha</button>
+      </div>
+      <a class="btn ghost" id="pPhotos" target="_blank" rel="noopener" style="justify-content:center">📷 Rasmlarni Telegramda ko'rish ↗</a>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="cScrim" hidden style="justify-content:flex-end;padding:0"></div>
+<aside class="drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="cTitle">
+  <header><h3 id="cTitle">Savatcha</h3><button class="x" style="position:static" id="cClose" aria-label="Yopish">✕</button></header>
+  <div class="items" id="cItems"></div>
+  <div class="foot">
+    <div class="tot"><span>Jami (kargosiz)</span><b id="cTot">0</b></div>
+    <input class="inp" id="fName" placeholder="Ismingiz" autocomplete="name">
+    <input class="inp" id="fPhone" placeholder="Telefon: +998 __ ___ __ __" autocomplete="tel">
+    <input class="inp" id="fAddr" placeholder="Viloyat, shahar / tuman">
+    <div class="err" id="cErr"></div>
+    <button class="btn primary" id="cSend" style="justify-content:center">@kwert_admin ga buyurtma yuborish →</button>
+    <details><summary style="color:var(--mute);font-size:13px;cursor:pointer">Xabar matni (Telegram matnni qo'ymasa, nusxa oling)</summary>
+      <div class="msgbox" id="cMsg" style="margin-top:8px"></div>
+      <button class="btn ghost" id="cCopy" style="margin-top:8px;padding:8px 14px">Nusxa olish</button>
+    </details>
+  </div>
+</aside>
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(()=>{
+/* ---------- DATA (t.me/kwert_wear postlaridan) ---------- */
+const RAW=`412|Ustki kiyim (set)|top|159000|2
+412.2|Shim (set)|pants|129000|2
+411|Ustki kiyim (kombo)|top|200000|1
+411.2|Shim (kombo)|pants|180000|1
+411.3|Futbolka (kombo)|top|50000|1
+411.4|Krossovka (kombo)|shoes|170000|1
+397|Drop №397|drop|49000|10
+388|Drop №388|drop|299000|9
+387|Drop №387|drop|34000|1
+386|Death Note|top|80000|1
+376|Drop №376|drop|180000|10
+366|Drop №366|drop|250000|10
+360|Drop №360|drop|199000|6
+350|Titanlar hujumi xudi|hoodie|199000|10
+340|Titanlar hujumi xudi II|hoodie|199000|10
+335|Drop №335|drop|50000|5
+331|Drop №331|drop|180000|4
+328|Drop №328|drop|180000|3
+324|Drop №324|drop|120000|4
+317|Drop №317|drop|150000|3
+312|Drop №312|drop|150000|1
+308|Drop №308|drop|79000|4
+306|Drop №306|drop|110000|2
+300|Drop №300|drop|110000|2
+297|Drop №297|drop|148000|3
+291|Drop №291|drop|80000|2
+288|Drop №288|drop|180000|3
+284|Drop №284|drop|210000|1
+281|Drop №281|drop|140000|3
+277|Y2K soat|acc|200000|4
+267|Drop №267|drop|40000|10
+265|Drop №265|drop|200000|2
+263|Drop №263|drop|149000|2
+261|Drop №261|drop|200000|1
+258|Drop №258|drop|130000|3
+256|Drop №256|drop|140000|2
+249|Drop №249|drop|220000|7
+246|Drop №246|drop|80000|2
+244|Drop №244|drop|170000|2
+239|Drop №239|drop|120000|5
+236|Unisex drop №236|drop|190000|3
+234|Drop №234|drop|170000|2
+230|Drop №230|drop|220000|4
+228|Drop №228|drop|199000|2
+226|Drop №226|drop|189000|2
+222|Drop №222|drop|159000|4
+220|Drop №220|drop|139000|2
+211|Drop №211|drop|229000|4
+204|Drop №204|drop|199000|7
+199|Drop №199|drop|189000|3
+197|Drop №197|drop|139000|2
+184|Drop №184|drop|99000|10
+180|Drop №180|drop|189000|4
+176|Drop №176|drop|189000|3
+173|Drop №173|drop|179000|3
+170|Drop №170|drop|139000|3
+168|Drop №168|drop|139000|2
+161|Drop №161|drop|250000|7
+156|Drop №156|drop|139000|2
+151|Drop №151|drop|70000|2
+149|Drop №149|drop|140000|2
+147|Drop №147|drop|150000|2
+145|Drop №145|drop|50000|2
+141|Drop №141|drop|90000|2
+138|Kuz uchun xudi|hoodie|109000|3
+136|Drop №136|drop|109000|2
+134|NASA vetrovka|jacket|200000|2
+132|Drop №132|drop|179000|1
+131|Baggy jeans (kuz)|pants|189000|1
+130|Drop №130|drop|199000|1
+127|Drop №127|drop|150000|3
+126|Drop №126|drop|200000|1
+124|Porsche kurtka (koja)|jacket|240000|2
+121|Red Bull kurtka|jacket|270000|3
+118|Drop №118|drop|200000|2
+117|Drop №117|drop|170000|1
+115|Drop №115|drop|270000|1
+114|Drop №114|drop|160000|1
+111|Drop №111|drop|150000|1
+110|Drop №110|drop|170000|1
+109|Drop №109|drop|200000|1
+108|Drop №108|drop|30000|1
+106|Drop №106|drop|250000|2
+104|Drop №104|drop|180000|2
+102|Drop №102|drop|200000|2
+99|Drop №99|drop|200000|3
+98|Drop №98|drop|140000|1
+97|Drop №97|drop|150000|1
+95|Porsche kurtka|jacket|280000|2
+94|Drop №94|drop|200000|1
+93|Anime xudi|hoodie|190000|1
+89|Drop №89|drop|300000|4
+86|Drop №86|drop|270000|3
+85|Drop №85|drop|100000|1
+84|Drop №84|drop|170000|1
+83|Drop №83|drop|170000|1
+82|Drop №82|drop|250000|1
+81|Drop №81|drop|270000|1
+80|Drop №80|drop|200000|1
+78|Drop №78|drop|220000|2
+76|Drop №76|drop|250000|2
+75|Drop №75|drop|100000|1
+74|Drop №74|drop|150000|1
+73|Drop №73|drop|190000|1
+72|Drop №72|drop|190000|1
+68|Drop №68 · a'lo sifat|drop|190000|1
+65|Baggy jeans|pants|170000|3
+64|Kuz uchun kurtka|jacket|250000|1
+62|Drop №62 · standart|drop|120000|2
+61|Kuzgi xudi|hoodie|100000|1
+59|Ferrari kurtka|jacket|270000|2
+58|Premium drop (video)|drop|600000|1
+57|Drop №57|drop|200000|1
+56|Drop №56|drop|165000|1
+55|Klassik uslub|top|140000|1
+51|Kuzgi xudi|hoodie|100000|2
+49|Anime xudi|hoodie|140000|2
+48|Drop №48|drop|125000|1
+47|Buggy jeans|pants|150000|1
+44|Y2K xudi|hoodie|120000|3
+42|Spotify xudi · 100% paxta|hoodie|150000|2
+36|Fajiaojia Red|top|86000|4
+35|Brocade tugmali ko'ylak|top|130000|1
+34|Europe Y2K|top|175000|1
+33|Kashtali krossovka|shoes|400000|1
+32|Oversize futbolka|top|160000|1
+29|Niche skeyt krossovka|shoes|189000|2
+27|Drop №27|drop|59000|2
+26|Drop №26 · yuqori sifat|drop|186000|1
+25|Qishki jinsi|pants|155000|1
+24|Qishki oversize xudi|hoodie|175000|1
+23|Oversize xudi|hoodie|165000|1
+22|Drop №22 · yuqori sifat|drop|145000|1
+21|AJ1 Black-Purple|shoes|190000|1
+20|Domo-kun|top|89000|1
+18|Streetwear hip-hop|top|130000|1
+17|Winter trend 2026|drop|110000|1
+16|Export label drop|drop|100000|1
+12|Y2K Gothic sumka|acc|150000|3
+10|Kuzgi vetrovka|jacket|170000|2
+7|Anime xudi|hoodie|170000|3`;
+const CATS={all:"Hammasi",hoodie:"Xudi",jacket:"Kurtka",top:"Futbolka / ustki",pants:"Shim / jinsi",shoes:"Krossovka",acc:"Aksessuar",drop:"Boshqa droplar"};
+const WEIGHT={hoodie:700,jacket:900,top:250,pants:600,shoes:1200,acc:300,drop:500};
+const SIZES={shoes:["38","39","40","41","42","43","44","45"],acc:["Standart"],def:["XS","S","M","L","XL","XXL","3XL","4XL"]};
+const P=RAW.trim().split("\n").map((l,i)=>{const [id,name,cat,price,ph]=l.split("|");return{key:id,post:id.split(".")[0],name,cat,price:+price,photos:+ph,order:i}});
+
+/* ---------- silhouettes: one path set -> SVG + THREE ---------- */
+const SH={
+ top:[["M",-.25,.9],["L",-.55,.85],["L",-1,.45],["L",-.8,.18],["L",-.55,.38],["L",-.55,-.95],["L",.55,-.95],["L",.55,.38],["L",.8,.18],["L",1,.45],["L",.55,.85],["L",.25,.9],["Q",0,.62,-.25,.9]],
+ hoodie:[["M",-.28,.78],["C",-.42,1.25,.42,1.25,.28,.78],["L",.58,.7],["L",1,-.6],["L",.78,-.7],["L",.56,.1],["L",.58,-.95],["L",-.58,-.95],["L",-.56,.1],["L",-.78,-.7],["L",-1,-.6],["L",-.58,.7]],
+ jacket:[["M",-.2,.92],["L",-.36,.98],["L",-.62,.78],["L",-1,-.62],["L",-.76,-.72],["L",-.58,.05],["L",-.62,-.98],["L",.62,-.98],["L",.58,.05],["L",.76,-.72],["L",1,-.62],["L",.62,.78],["L",.36,.98],["L",.2,.92],["L",0,.55]],
+ pants:[["M",-.62,.96],["L",.62,.96],["L",.74,-.96],["L",.16,-.96],["L",0,.32],["L",-.16,-.96],["L",-.74,-.96]],
+ shoes:[["M",-1,-.38],["L",1,-.38],["L",1,-.12],["Q",.98,.16,.62,.18],["L",.12,.34],["L",-.42,.62],["L",-.92,.56],["L",-1,-.1]],
+ acc:[["M",-.8,.35],["L",-.3,.35],["C",-.3,.95,.3,.95,.3,.35],["L",.8,.35],["L",.9,-.85],["L",-.9,-.85]],
+};
+SH.drop=SH.top;
+function svgPath(c){return c.map(s=>s[0]+" "+s.slice(1).map((v,i)=>(i%2?(-v*100).toFixed(1):(v*100).toFixed(1))).join(" ")).join(" ")+"Z"}
+const PAL=[["#e5336f","#f2a634"],["#5a5ee6","#e5336f"],["#f2a634","#5a5ee6"],["#4fd1a1","#5a5ee6"],["#efe9f1","#e5336f"]];
+const palOf=k=>PAL[Math.abs(parseInt(k)*7)%PAL.length];
+function svgOf(cat,key){const [a,b]=palOf(key),id="g"+String(key).replace(".","_");
+ return `<svg viewBox="-110 -125 220 250" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><path d="${svgPath(SH[cat]||SH.top)}" fill="url(#${id})" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>${cat==="hoodie"?'<path d="M-14 -50 L-14 -10 M14 -50 L14 -10" stroke="rgba(15,13,18,.5)" stroke-width="3"/>':""}${cat==="jacket"?'<path d="M0 -55 L0 95" stroke="rgba(15,13,18,.5)" stroke-width="3"/>':""}<text x="0" y="${cat==="pants"?-70:cat==="shoes"?20:10}" text-anchor="middle" font-family="Anybody,Impact,sans-serif" font-weight="900" font-size="${cat==="shoes"?22:26}" fill="rgba(15,13,18,.78)" style="font-stretch:150%">KWERT</text></svg>`}
+
+/* ---------- ikat (atlas) texture, generated ---------- */
+function ikatCanvas(a,b,size=512,label){
+ const c=document.createElement("canvas");c.width=c.height=size;const g=c.getContext("2d");
+ g.fillStyle="#18141d";g.fillRect(0,0,size,size);
+ const cols=[a,b,"#efe9f1","#5a5ee6"];let s=parseInt(a.slice(1),16)%997+3;const rnd=()=>(s=(s*16807)%2147483647)/2147483647;
+ const bands=8,bw=size/bands;
+ for(let i=0;i<bands;i++){const col=cols[i%cols.length];g.fillStyle=col;
+  for(let y=0;y<size;y+=4){const amp=Math.sin(y/size*Math.PI*4+i)*bw*.32;const jit=(rnd()-.5)*bw*.18;const w=bw*.42+Math.sin(y/22+i*2)*bw*.18;
+   g.fillRect(i*bw+bw/2-w/2+amp+jit,y,w,4)}}
+ g.globalAlpha=.85;
+ for(let i=0;i<6;i++){const cx=(i%3+.5)*size/3,cy=(Math.floor(i/3)+.5)*size/2;g.fillStyle=i%2?a:b;g.beginPath();
+  g.moveTo(cx,cy-60);g.lineTo(cx+34,cy);g.lineTo(cx,cy+60);g.lineTo(cx-34,cy);g.closePath();g.fill();
+  g.fillStyle="#18141d";g.beginPath();g.moveTo(cx,cy-24);g.lineTo(cx+13,cy);g.lineTo(cx,cy+24);g.lineTo(cx-13,cy);g.fill()}
+ g.globalAlpha=1;
+ if(label){g.fillStyle="rgba(15,13,18,.82)";g.fillRect(size*.18,size*.4,size*.64,size*.2);
+  g.fillStyle="#efe9f1";g.font=`900 ${size*.12}px Anybody, Impact, sans-serif`;g.textAlign="center";g.textBaseline="middle";g.fillText(label,size/2,size/2+2)}
+ return c}
+let ikatURL="";try{ikatURL=ikatCanvas("#e5336f","#f2a634",360).toDataURL("image/jpeg",.8)}catch(e){}
+
+/* ---------- 3D ---------- */
+const hasGL=!!window.THREE&&(()=>{try{const c=document.createElement("canvas");return !!(c.getContext("webgl")||c.getContext("experimental-webgl"))}catch(e){return false}})();
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function shapeOf(cat){const sh=new THREE.Shape();(SH[cat]||SH.top).forEach(s=>{const v=s.slice(1);if(s[0]==="M")sh.moveTo(v[0],v[1]);else if(s[0]==="L")sh.lineTo(v[0],v[1]);else if(s[0]==="Q")sh.quadraticCurveTo(v[0],v[1],v[2],v[3]);else sh.bezierCurveTo(...v)});return sh}
+function garment(cat,a,b,label){
+ const geo=new THREE.ExtrudeGeometry(shapeOf(cat),{depth:cat==="shoes"?.5:.16,bevelEnabled:true,bevelThickness:.08,bevelSize:.06,bevelSegments:6,curveSegments:24});
+ geo.center();
+ const tex=new THREE.CanvasTexture(ikatCanvas(a,b,512,label));tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.repeat.set(.5,.5);tex.offset.set(.5,.5);
+ if(THREE.sRGBEncoding)tex.encoding=THREE.sRGBEncoding;
+ const front=new THREE.MeshStandardMaterial({map:tex,roughness:.62,metalness:.08});
+ const side=new THREE.MeshStandardMaterial({color:new THREE.Color(a),roughness:.4,metalness:.3});
+ return new THREE.Mesh(geo,[front,side]);
+}
+function makeViewer(host,{cat="top",a="#e5336f",b="#f2a634",label="KWERT",particles=false}={}){
+ if(!hasGL)return null;
+ const r=new THREE.WebGLRenderer({antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));
+ if(THREE.sRGBEncoding)r.outputEncoding=THREE.sRGBEncoding;
+ host.appendChild(r.domElement);
+ const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(36,1,.1,100);cam.position.set(0,0,5.4);
+ scene.add(new THREE.HemisphereLight(0xffffff,0x221c29,.75));
+ const d=new THREE.DirectionalLight(0xffffff,1.1);d.position.set(3,4,5);scene.add(d);
+ const rim1=new THREE.PointLight(0xe5336f,2.2,12);rim1.position.set(-3,1,-2);scene.add(rim1);
+ const rim2=new THREE.PointLight(0xf2a634,1.8,12);rim2.position.set(3,-2,-1.5);scene.add(rim2);
+ const group=new THREE.Group();scene.add(group);
+ let mesh=garment(cat,a,b,label);group.add(mesh);
+ let pts=null;
+ if(particles){const g=new THREE.BufferGeometry(),n=260,arr=new Float32Array(n*3);for(let i=0;i<n;i++){arr[i*3]=(Math.random()-.5)*9;arr[i*3+1]=(Math.random()-.5)*7;arr[i*3+2]=(Math.random()-.5)*4-1}
+  g.setAttribute("position",new THREE.BufferAttribute(arr,3));pts=new THREE.Points(g,new THREE.PointsMaterial({color:0xf2a634,size:.03,transparent:true,opacity:.7}));scene.add(pts);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(1.75,.012,8,120),new THREE.MeshBasicMaterial({color:0xe5336f,transparent:true,opacity:.55}));ring.rotation.x=1.25;scene.add(ring);group.userData.ring=ring}
+ let rotY=-.5,rotX=.08,vy=0,vx=0,drag=false,lx=0,ly=0,mx=0,my=0,alive=true;
+ const el=r.domElement;el.style.touchAction="pan-y";
+ el.addEventListener("pointerdown",e=>{drag=true;lx=e.clientX;ly=e.clientY;el.setPointerCapture(e.pointerId)});
+ el.addEventListener("pointermove",e=>{const rc=el.getBoundingClientRect();mx=(e.clientX-rc.left)/rc.width-.5;my=(e.clientY-rc.top)/rc.height-.5;if(!drag)return;vy=(e.clientX-lx)*.01;vx=(e.clientY-ly)*.006;rotY+=vy;rotX=Math.max(-.7,Math.min(.7,rotX+vx));lx=e.clientX;ly=e.clientY});
+ el.addEventListener("pointerup",()=>drag=false);el.addEventListener("pointercancel",()=>drag=false);
+ function size(){const w=host.clientWidth,h=host.clientHeight||w;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();cam.position.z=w/h<.85?6.6:5.4}
+ const ro=new ResizeObserver(size);ro.observe(host);size();
+ let t=0;
+ (function loop(){if(!alive)return;requestAnimationFrame(loop);t+=.016;
+  if(!drag){if(!reduce)rotY+=.006;vy*=.92;rotY+=vy*.2}
+  group.rotation.y=rotY+mx*.4;group.rotation.x=rotX+my*.25;group.position.y=reduce?0:Math.sin(t*1.2)*.06;
+  if(pts&&!reduce){pts.rotation.y=t*.03;group.userData.ring.rotation.z=t*.25}
+  r.render(scene,cam)})();
+ return{set(c,a2,b2,l){group.remove(mesh);mesh.geometry.dispose();mesh.material.forEach(m=>{m.map&&m.map.dispose();m.dispose()});mesh=garment(c,a2,b2,l);group.add(mesh);rotY=-.5;rotX=.08},
+  kill(){alive=false;ro.disconnect();r.dispose();el.remove()}};
+}
+const stage=document.getElementById("stage");
+if(hasGL)makeViewer(stage,{particles:true});
+else stage.insertAdjacentHTML("beforeend",`<div style="display:grid;place-items:center;height:100%">${svgOf("top","388")}</div>`);
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const fmt=n=>n.toLocaleString("ru-RU").replace(/,/g," ").replace(/ /g," ");
+const toast=m=>{const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,2400)};
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* marquee */
+const mqT=["Premium kiyimlar","Unisex","Namangan 🇺🇿","Yetkazib berish 9–15 kun","Kargo 14 000 so'm / 100 gr","Buyurtma: @kwert_admin","Hamma o'lchamlar bor"];
+$("#mq").innerHTML=[...mqT,...mqT].map(t=>`<span>${t}</span>`).join("");
+/* stats */
+(()=>{const el=$("#statItems"),N=P.length;let i=0;const st=()=>{i=Math.min(N,i+Math.ceil(N/30));el.textContent=i;if(i<N)requestAnimationFrame(st)};reduce?el.textContent=N:st()})();
+
+/* ---------- catalog ---------- */
+let cat="all",q="",sort="new",shown=24;
+const NEWEST=new Set(P.slice(0,8).map(p=>p.key));
+function chips(){$("#chips").innerHTML=Object.entries(CATS).map(([k,v])=>{const n=k==="all"?P.length:P.filter(p=>p.cat===k).length;return n?`<button class="chip" data-c="${k}" aria-pressed="${k===cat}">${v} <small>${n}</small></button>`:""}).join("")}
+function list(){let l=P.filter(p=>(cat==="all"||p.cat===cat)&&(!q||(p.name+" #"+p.post+" "+CATS[p.cat]).toLowerCase().includes(q)));
+ if(sort==="lo")l.sort((a,b)=>a.price-b.price);else if(sort==="hi")l.sort((a,b)=>b.price-a.price);else l.sort((a,b)=>a.order-b.order);return l}
+function render(){const l=list(),g=$("#grid");
+ g.innerHTML=l.length?l.slice(0,shown).map(p=>`<button class="card" data-k="${p.key}" aria-label="${p.name}, ${fmt(p.price)} so'm">
+  <div class="vis"><div class="ikat" style="background-image:url(${ikatURL});filter:hue-rotate(${(parseInt(p.post)*37)%360}deg)"></div>${svgOf(p.cat,p.key)}
+  <span class="pid">#${p.post}</span>${NEWEST.has(p.key)?'<span class="new">YANGI</span>':""}<span class="ph">📷 ${p.photos}</span></div>
+  <div class="body"><span class="cat">${CATS[p.cat]}</span><span class="nm">${p.name}</span><span class="pr">${fmt(p.price)}<small>so'm + kargo</small></span></div></button>`).join("")
+  :`<div class="empty" style="grid-column:1/-1">Hech narsa topilmadi. Boshqa so'z bilan qidirib ko'ring.</div>`;
+ $("#moreBtn").hidden=l.length<=shown}
+$("#chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;cat=b.dataset.c;shown=24;chips();render()});
+$("#q").addEventListener("input",e=>{q=e.target.value.trim().toLowerCase().replace(/^#/,"#");shown=24;render()});
+$("#sort").addEventListener("change",e=>{sort=e.target.value;render()});
+$("#moreBtn").addEventListener("click",()=>{shown+=24;render()});
+$("#grid").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openP(c.dataset.k)});
+chips();render();
+
+/* cargo calc */
+const w=$("#w");const calc=()=>{$("#wv").textContent=fmt(+w.value)+" gr";$("#cv").textContent=fmt(Math.ceil(w.value/100)*14000)};w.addEventListener("input",calc);calc();
+
+/* ---------- product modal ---------- */
+let cur=null,sel=null,qty=1,viewer=null,lastFocus=null;
+function openP(k){cur=P.find(p=>p.key===k);sel=null;qty=1;lastFocus=document.activeElement;
+ const sz=SIZES[cur.cat]||SIZES.def;if(sz.length===1)sel=sz[0];
+ $("#pMeta").textContent=`${CATS[cur.cat]} · Post #${cur.post} · ${cur.photos} rasm`;
+ $("#pTitle").textContent=cur.name;
+ $("#pPrice").innerHTML=`${fmt(cur.price)} so'm <small>+ kargo</small>`;
+ $("#pSizes").innerHTML=sz.map(s=>`<button class="sz" data-s="${s}" aria-pressed="${s===sel}">${s}</button>`).join("");
+ $("#pSzHint").textContent=cur.cat==="shoes"?"EU o'lcham":cur.cat==="acc"?"":"hamma o'lchamlar bor";
+ $("#qv").textContent=1;$("#pColor").value="";$("#pErr").textContent="";
+ const wg=WEIGHT[cur.cat];$("#pNote").innerHTML=`Taxminiy vazn ≈ <b>${fmt(wg)} gr</b> → kargo ≈ <b>${fmt(Math.ceil(wg/100)*14000)} so'm</b>. Yetkazish 8–16 kun, odatda 50% oldindan to'lov. Aniq summani admin aytadi.`;
+ $("#pPhotos").href=`https://t.me/kwert_wear/${cur.post}`;
+ $("#pScrim").hidden=false;document.body.style.overflow="hidden";
+ const [a,b]=palOf(cur.key);
+ if(hasGL){if(!viewer)viewer=makeViewer($("#v3d"),{cat:cur.cat,a,b,label:"#"+cur.post});else viewer.set(cur.cat,a,b,"#"+cur.post)}
+ else $("#v3d").innerHTML=`<div style="display:grid;place-items:center;height:100%;padding:30px">${svgOf(cur.cat,cur.key)}</div>`;
+ $("#pClose").focus()}
+function closeP(){$("#pScrim").hidden=true;document.body.style.overflow="";lastFocus&&lastFocus.focus()}
+$("#pClose").onclick=closeP;$("#pScrim").addEventListener("click",e=>{if(e.target.id==="pScrim")closeP()});
+$("#pSizes").addEventListener("click",e=>{const b=e.target.closest(".sz");if(!b)return;sel=b.dataset.s;$("#pErr").textContent="";[...$("#pSizes").children].forEach(x=>x.setAttribute("aria-pressed",x===b))});
+$("#qm").onclick=()=>{qty=Math.max(1,qty-1);$("#qv").textContent=qty};$("#qp").onclick=()=>{qty=Math.min(20,qty+1);$("#qv").textContent=qty};
+function lineFrom(){if(!sel){$("#pErr").textContent="Avval o'lchamni tanlang.";return null}return{key:cur.key,size:sel,qty,note:$("#pColor").value.trim()}}
+$("#pAdd").onclick=()=>{const l=lineFrom();if(!l)return;addCart(l);closeP();toast("Savatchaga qo'shildi ✓")};
+$("#pBuy").onclick=()=>{const l=lineFrom();if(!l)return;addCart(l);closeP();openCart();toast("Ismingiz va telefoningizni yozing")};
+
+/* ---------- cart ---------- */
+let cart=store.get("kw_cart",[]).filter(l=>P.some(p=>p.key===l.key));
+function addCart(l){const ex=cart.find(c=>c.key===l.key&&c.size===l.size&&c.note===l.note);ex?ex.qty+=l.qty:cart.push(l);save()}
+function save(){store.set("kw_cart",cart);$("#cartCount").textContent=cart.reduce((s,c)=>s+c.qty,0);drawCart()}
+function total(){return cart.reduce((s,c)=>s+P.find(p=>p.key===c.key).price*c.qty,0)}
+function message(){const f=["fName","fPhone","fAddr"].map(i=>$("#"+i).value.trim());
+ const lines=cart.map((c,i)=>{const p=P.find(x=>x.key===c.key);return `${i+1}) ${p.name} (#${p.post})\n   O'lcham: ${c.size} · ${c.qty} dona · ${fmt(p.price*c.qty)} so'm${c.note?"\n   Izoh: "+c.note:""}\n   https://t.me/kwert_wear/${p.post}`});
+ return `Assalomu alaykum! KWERT saytidan buyurtma 🖤\n\n${lines.join("\n")}\n\nJami: ${fmt(total())} so'm + kargo\n\nIsm: ${f[0]||"-"}\nTelefon: ${f[1]||"-"}\nManzil: ${f[2]||"-"}`}
+function drawCart(){const it=$("#cItems");
+ it.innerHTML=cart.length?cart.map((c,i)=>{const p=P.find(x=>x.key===c.key);return `<div class="ci"><div class="mini">${svgOf(p.cat,p.key+"c")}</div><div><b>${p.name}</b><span>${c.size} · ${c.qty} dona · ${fmt(p.price*c.qty)} so'm</span></div><button data-i="${i}">O'chirish</button></div>`}).join("")
+  :`<div class="empty">Savatcha bo'sh. Katalogdan kiyim tanlang.</div>`;
+ $("#cTot").textContent=fmt(total())+" so'm";$("#cMsg").textContent=message()}
+$("#cItems").addEventListener("click",e=>{const b=e.target.closest("button[data-i]");if(!b)return;cart.splice(+b.dataset.i,1);save()});
+["fName","fPhone","fAddr"].forEach(i=>{const el=$("#"+i);el.value=store.get("kw_"+i,"");el.addEventListener("input",()=>{store.set("kw_"+i,el.value);$("#cMsg").textContent=message();$("#cErr").textContent=""})});
+function openCart(){$("#drawer").hidden=false;$("#cScrim").hidden=false;document.body.style.overflow="hidden";drawCart();$("#cClose").focus()}
+function closeCart(){$("#drawer").hidden=true;$("#cScrim").hidden=true;document.body.style.overflow=""}
+$("#openCart").onclick=openCart;$("#cClose").onclick=closeCart;$("#cScrim").onclick=closeCart;
+$("#cSend").onclick=()=>{
+ if(!cart.length){$("#cErr").textContent="Savatcha bo'sh.";return}
+ if(!$("#fName").value.trim()||$("#fPhone").value.replace(/\D/g,"").length<9){$("#cErr").textContent="Ism va to'liq telefon raqamini yozing.";return}
+ const url="https://t.me/kwert_admin?text="+encodeURIComponent(message());
+ const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
+ $("#cErr").textContent="";toast("Telegram ochildi: xabarni «Yuborish» bilan jo'nating");
+};
+$("#cCopy").onclick=()=>{const t=message();navigator.clipboard?.writeText(t).then(()=>toast("Nusxa olindi ✓")).catch(()=>{const r=document.createRange();r.selectNodeContents($("#cMsg"));const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Matn belgilandi — nusxa oling")})};
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(!$("#pScrim").hidden)closeP();else if(!$("#drawer").hidden)closeCart()}});
+save();
+})();
+</script>
+
+</body>
+</html>
