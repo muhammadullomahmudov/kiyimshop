@@ -1,0 +1,17 @@
+name: tmp assets
+on: { push: { branches: [tmp-assets] } }
+permissions: { contents: write }
+jobs:
+  a:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p a && cd a
+          curl -fsSL -o three.min.js https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js
+          curl -fsSL -o anybody.ttf "https://github.com/google/fonts/raw/main/ofl/anybody/Anybody%5Bwdth,wght%5D.ttf"
+          curl -fsSL -o onest.ttf "https://github.com/google/fonts/raw/main/ofl/onest/Onest%5Bwght%5D.ttf"
+          curl -fsSL -o jbm.ttf "https://github.com/google/fonts/raw/main/ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf"
+          ls -la
+          cd .. && git config user.name bot && git config user.email bot@users.noreply.github.com
+          git add a && git commit -m assets && git push
