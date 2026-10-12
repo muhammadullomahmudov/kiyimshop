@@ -154,7 +154,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 /* Modal + drawer */
 .scrim{position:fixed;inset:0;background:rgba(6,5,8,.72);backdrop-filter:blur(6px);z-index:60;display:flex;align-items:center;justify-content:center;padding:16px}
 .modal{background:var(--ink2);border:1px solid var(--line);border-radius:20px;width:min(1000px,100%);max-height:calc(100% - 20px);overflow:auto;display:grid;grid-template-columns:1fr 1fr;position:relative}
-.modal .v3d{position:relative;background:var(--ink3);min-height:380px}
+.modal .v3d{position:relative;background:var(--ink3);min-height:380px;overflow:hidden}
+.card .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .vis img{transform:scale(1.06)}
+.card .vis.photo::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(15,13,18,.55));pointer-events:none}
+.glw,.galw{position:absolute;inset:0}
+.galw{display:grid;grid-template-rows:1fr auto;background:var(--ink)}
+.galw .main{position:relative;min-height:0;display:grid;place-items:center;overflow:hidden}
+.galw .main img{width:100%;height:100%;object-fit:contain}
+.galw .nav2{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(15,13,18,.75);font-size:18px}
+.galw .prev{left:10px}.galw .next{right:10px}
+.galw .cnt{position:absolute;top:12px;left:12px;font-family:var(--f-mono);font-size:11px;background:rgba(15,13,18,.75);padding:4px 8px;border-radius:6px}
+.thumbs{display:flex;gap:6px;padding:8px;overflow-x:auto;background:var(--ink2);border-top:1px solid var(--line)}
+.thumbs button{flex:0 0 56px;height:56px;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;background:var(--ink3)}
+.thumbs button[aria-current="true"]{border-color:var(--saffron)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.vtabs{position:absolute;top:12px;right:60px;z-index:3;display:flex;background:rgba(15,13,18,.8);border:1px solid var(--line);border-radius:999px;padding:3px}
+.vtabs button{border:0;background:transparent;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;color:var(--mute)}
+.vtabs button[aria-pressed="true"]{background:var(--bone);color:var(--ink)}
+.desc{white-space:pre-line;color:var(--mute);font-size:14px;border-left:2px solid var(--atlas);padding-left:12px}
+.ci .mini img{width:100%;height:100%;object-fit:cover;border-radius:10px}
 .modal .v3d canvas{position:absolute;inset:0;width:100%!important;height:100%!important;cursor:grab}
 .modal .hint{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:var(--mute);pointer-events:none}
 .modal .info{padding:28px;display:grid;gap:16px;align-content:start;min-width:0}
@@ -318,11 +337,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <div class="scrim" id="pScrim" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pTitle">
     <button class="x" id="pClose" aria-label="Yopish">✕</button>
-    <div class="v3d" id="v3d"><span class="hint mono">Sichqoncha yoki barmoq bilan aylantiring</span></div>
+    <div class="v3d" id="v3d">
+      <div class="vtabs" id="vtabs" role="group" aria-label="Ko'rinish"><button data-v="photo" aria-pressed="true">Rasmlar</button><button data-v="3d" aria-pressed="false">3D</button></div>
+      <div class="glw" id="glw" hidden><span class="hint mono">Sichqoncha yoki barmoq bilan aylantiring</span></div>
+      <div class="galw" id="galw">
+        <div class="main"><img id="galMain" alt=""><span class="cnt mono" id="galCnt"></span>
+          <button class="nav2 prev" id="galPrev" aria-label="Oldingi rasm">‹</button><button class="nav2 next" id="galNext" aria-label="Keyingi rasm">›</button></div>
+        <div class="thumbs" id="thumbs"></div>
+      </div>
+    </div>
     <div class="info">
       <div class="mono" id="pMeta" style="color:var(--saffron)"></div>
       <h3 id="pTitle"></h3>
       <div class="price" id="pPrice"></div>
+      <div class="desc" id="pDesc" hidden></div>
       <div>
         <div class="lbl"><span>O'lcham</span><span id="pSzHint" style="color:var(--mute);font-weight:400;font-size:13px"></span></div>
         <div class="sizes" id="pSizes" style="margin-top:10px" role="group" aria-label="O'lcham"></div>
@@ -609,13 +637,35 @@ $("#mq").innerHTML=[...mqT,...mqT].map(t=>`<span>${t}</span>`).join("");
 
 /* ---------- catalog ---------- */
 let cat="all",q="",sort="new",shown=24;
-const NEWEST=new Set(P.slice(0,8).map(p=>p.key));
+let NEWEST=new Set(P.slice(0,8).map(p=>p.key));
+const EMO={"👕":"ustki kiyim","👖":"shim","👟":"krossovka","🧢":"kepka","👜":"sumka","🧥":"kurtka","⌚":"soat"};
+const EMOCAT={"👕":"top","👖":"pants","👟":"shoes","🧢":"acc","👜":"acc","🧥":"jacket","⌚":"acc"};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cleanDesc=t=>(t||"").split("\n").filter(l=>l.trim()&&!/narx|cargo|kargo|kun\b|buyurtma|otziv|kwert|@|^[•\s]*$/i.test(l)).join("\n").trim();
+/* products.json — GitHub Actions kanaldan yig'adi (scripts/sync_telegram.py) */
+async function loadTG(){
+ let d;try{const r=await fetch("products.json",{cache:"no-cache"});if(!r.ok)return;d=await r.json()}catch(e){return}
+ if(!d||!Array.isArray(d.products))return;
+ const by={};d.products.forEach(x=>by[String(x.post)]=x);
+ P.forEach(p=>{const x=by[p.post];if(!x)return;p.imgs=x.photos||[];p.text=x.text||"";if(p.imgs.length)p.photos=p.imgs.length;p.video=!!x.video;
+  const mp=(x.prices||[]);if(!p.key.includes(".")&&mp.length===1&&mp[0].price)p.price=mp[0].price});
+ const known=new Set(P.map(p=>p.post));
+ d.products.forEach(x=>{const post=String(x.post);if(known.has(post))return;const prices=x.prices&&x.prices.length?x.prices:[{emoji:"",price:x.price}];
+  prices.forEach((pr,i)=>P.push({key:post+(i?"."+(i+1):""),post,name:(x.name||"Drop №"+post)+(prices.length>1&&EMO[pr.emoji]?" · "+EMO[pr.emoji]:""),
+   cat:(prices.length>1&&EMOCAT[pr.emoji])||(CATS[x.cat]?x.cat:"drop"),price:pr.price,photos:(x.photos||[]).length,imgs:x.photos||[],text:x.text||"",video:!!x.video}))});
+ P.forEach(p=>{const s=p.key.split(".");p.order=-parseInt(s[0])+(s[1]?+s[1]*.01:0)});
+ P.sort((a,b)=>a.order-b.order);
+ NEWEST=new Set(P.slice(0,8).map(p=>p.key));
+ $("#statItems").textContent=P.length;
+ const ph=P.reduce((s,p)=>s+((p.imgs&&!p.key.includes("."))?p.imgs.length:0),0);if(ph)document.querySelector(".heroStats div:nth-child(2) b").textContent=ph;
+ chips();render();
+}
 function chips(){$("#chips").innerHTML=Object.entries(CATS).map(([k,v])=>{const n=k==="all"?P.length:P.filter(p=>p.cat===k).length;return n?`<button class="chip" data-c="${k}" aria-pressed="${k===cat}">${v} <small>${n}</small></button>`:""}).join("")}
 function list(){let l=P.filter(p=>(cat==="all"||p.cat===cat)&&(!q||(p.name+" #"+p.post+" "+CATS[p.cat]).toLowerCase().includes(q)));
  if(sort==="lo")l.sort((a,b)=>a.price-b.price);else if(sort==="hi")l.sort((a,b)=>b.price-a.price);else l.sort((a,b)=>a.order-b.order);return l}
 function render(){const l=list(),g=$("#grid");
  g.innerHTML=l.length?l.slice(0,shown).map(p=>`<button class="card" data-k="${p.key}" aria-label="${p.name}, ${fmt(p.price)} so'm">
-  <div class="vis"><div class="ikat" style="background-image:url(${ikatURL});filter:hue-rotate(${(parseInt(p.post)*37)%360}deg)"></div>${svgOf(p.cat,p.key)}
+  <div class="vis${p.imgs&&p.imgs.length?" photo":""}"><div class="ikat" style="background-image:url(${ikatURL});filter:hue-rotate(${(parseInt(p.post)*37)%360}deg)"></div>${svgOf(p.cat,p.key)}${p.imgs&&p.imgs.length?`<img src="${esc(p.imgs[0])}" alt="${esc(p.name)}" loading="lazy" decoding="async">`:""}
   <span class="pid">#${p.post}</span>${NEWEST.has(p.key)?'<span class="new">YANGI</span>':""}<span class="ph">📷 ${p.photos}</span></div>
   <div class="body"><span class="cat">${CATS[p.cat]}</span><span class="nm">${p.name}</span><span class="pr">${fmt(p.price)}<small>so'm + kargo</small></span></div></button>`).join("")
   :`<div class="empty" style="grid-column:1/-1">Hech narsa topilmadi. Boshqa so'z bilan qidirib ko'ring.</div>`;
@@ -625,7 +675,8 @@ $("#q").addEventListener("input",e=>{q=e.target.value.trim().toLowerCase().repla
 $("#sort").addEventListener("change",e=>{sort=e.target.value;render()});
 $("#moreBtn").addEventListener("click",()=>{shown+=24;render()});
 $("#grid").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openP(c.dataset.k)});
-chips();render();
+$("#grid").addEventListener("error",e=>{if(e.target.tagName==="IMG"){e.target.closest(".vis")?.classList.remove("photo");e.target.remove()}},true);
+chips();render();loadTG();
 
 /* cargo calc */
 const w=$("#w");const calc=()=>{$("#wv").textContent=fmt(+w.value)+" gr";$("#cv").textContent=fmt(Math.ceil(w.value/100)*14000)};w.addEventListener("input",calc);calc();
@@ -642,11 +693,29 @@ function openP(k){cur=P.find(p=>p.key===k);sel=null;qty=1;lastFocus=document.act
  $("#qv").textContent=1;$("#pColor").value="";$("#pErr").textContent="";
  const wg=WEIGHT[cur.cat];$("#pNote").innerHTML=`Taxminiy vazn ≈ <b>${fmt(wg)} gr</b> → kargo ≈ <b>${fmt(Math.ceil(wg/100)*14000)} so'm</b>. Yetkazish 8–16 kun, odatda 50% oldindan to'lov. Aniq summani admin aytadi.`;
  $("#pPhotos").href=`https://t.me/kwert_wear/${cur.post}`;
+ $("#pPhotos").firstChild.textContent=cur.video?"🎬 Postni Telegramda ko'rish (video) ↗":"📷 Postni Telegramda ko'rish ↗";
+ const ds=cleanDesc(cur.text);$("#pDesc").textContent=ds;$("#pDesc").hidden=!ds;
  $("#pScrim").hidden=false;document.body.style.overflow="hidden";
- const [a,b]=palOf(cur.key);
- if(hasGL){if(!viewer)viewer=makeViewer($("#v3d"),{cat:cur.cat,a,b,label:"#"+cur.post});else viewer.set(cur.cat,a,b,"#"+cur.post)}
- else $("#v3d").innerHTML=`<div style="display:grid;place-items:center;height:100%;padding:30px">${svgOf(cur.cat,cur.key)}</div>`;
+ gi=0;const imgs=cur.imgs||[];
+ $("#thumbs").innerHTML=imgs.map((s,i)=>`<button data-i="${i}" aria-label="Rasm ${i+1}"><img src="${esc(s)}" alt="" loading="lazy"></button>`).join("");
+ $("#thumbs").hidden=imgs.length<2;$("#galPrev").hidden=$("#galNext").hidden=imgs.length<2;
+ $("#vtabs").hidden=!imgs.length||!hasGL;
+ showView(imgs.length?"photo":"3d");
  $("#pClose").focus()}
+let gi=0;
+function showImg(i){const imgs=cur.imgs||[];if(!imgs.length)return;gi=(i+imgs.length)%imgs.length;const m=$("#galMain");m.src=imgs[gi];m.alt=`${cur.name} — rasm ${gi+1}`;
+ $("#galCnt").textContent=`${gi+1} / ${imgs.length}`;[...$("#thumbs").children].forEach((b,j)=>b.setAttribute("aria-current",j===gi))}
+function showView(v){[...$("#vtabs").children].forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===v));
+ $("#galw").hidden=v!=="photo";$("#glw").hidden=v!=="3d";
+ if(v==="photo"){showImg(gi);return}
+ const [a,b]=palOf(cur.key);
+ if(hasGL){if(!viewer)viewer=makeViewer($("#glw"),{cat:cur.cat,a,b,label:"#"+cur.post});else viewer.set(cur.cat,a,b,"#"+cur.post)}
+ else $("#glw").innerHTML=`<div style="display:grid;place-items:center;height:100%;padding:30px">${svgOf(cur.cat,cur.key)}</div>`}
+$("#vtabs").addEventListener("click",e=>{const b=e.target.closest("button");if(b)showView(b.dataset.v)});
+$("#thumbs").addEventListener("click",e=>{const b=e.target.closest("button");if(b)showImg(+b.dataset.i)});
+$("#galPrev").onclick=()=>showImg(gi-1);$("#galNext").onclick=()=>showImg(gi+1);
+(()=>{let sx=null;const m=$("#galw .main");m.addEventListener("touchstart",e=>sx=e.touches[0].clientX,{passive:true});m.addEventListener("touchend",e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)showImg(gi+(dx<0?1:-1));sx=null})})();
+document.addEventListener("keydown",e=>{if($("#pScrim").hidden||$("#galw").hidden)return;if(e.key==="ArrowRight")showImg(gi+1);if(e.key==="ArrowLeft")showImg(gi-1)});
 function closeP(){$("#pScrim").hidden=true;document.body.style.overflow="";lastFocus&&lastFocus.focus()}
 $("#pClose").onclick=closeP;$("#pScrim").addEventListener("click",e=>{if(e.target.id==="pScrim")closeP()});
 $("#pSizes").addEventListener("click",e=>{const b=e.target.closest(".sz");if(!b)return;sel=b.dataset.s;$("#pErr").textContent="";[...$("#pSizes").children].forEach(x=>x.setAttribute("aria-pressed",x===b))});
@@ -664,7 +733,7 @@ function message(){const f=["fName","fPhone","fAddr"].map(i=>$("#"+i).value.trim
  const lines=cart.map((c,i)=>{const p=P.find(x=>x.key===c.key);return `${i+1}) ${p.name} (#${p.post})\n   O'lcham: ${c.size} · ${c.qty} dona · ${fmt(p.price*c.qty)} so'm${c.note?"\n   Izoh: "+c.note:""}\n   https://t.me/kwert_wear/${p.post}`});
  return `Assalomu alaykum! KWERT saytidan buyurtma 🖤\n\n${lines.join("\n")}\n\nJami: ${fmt(total())} so'm + kargo\n\nIsm: ${f[0]||"-"}\nTelefon: ${f[1]||"-"}\nManzil: ${f[2]||"-"}`}
 function drawCart(){const it=$("#cItems");
- it.innerHTML=cart.length?cart.map((c,i)=>{const p=P.find(x=>x.key===c.key);return `<div class="ci"><div class="mini">${svgOf(p.cat,p.key+"c")}</div><div><b>${p.name}</b><span>${c.size} · ${c.qty} dona · ${fmt(p.price*c.qty)} so'm</span></div><button data-i="${i}">O'chirish</button></div>`}).join("")
+ it.innerHTML=cart.length?cart.map((c,i)=>{const p=P.find(x=>x.key===c.key);return `<div class="ci"><div class="mini">${p.imgs&&p.imgs.length?`<img src="${esc(p.imgs[0])}" alt="">`:svgOf(p.cat,p.key+"c")}</div><div><b>${p.name}</b><span>${c.size} · ${c.qty} dona · ${fmt(p.price*c.qty)} so'm</span></div><button data-i="${i}">O'chirish</button></div>`}).join("")
   :`<div class="empty">Savatcha bo'sh. Katalogdan kiyim tanlang.</div>`;
  $("#cTot").textContent=fmt(total())+" so'm";$("#cMsg").textContent=message()}
 $("#cItems").addEventListener("click",e=>{const b=e.target.closest("button[data-i]");if(!b)return;cart.splice(+b.dataset.i,1);save()});

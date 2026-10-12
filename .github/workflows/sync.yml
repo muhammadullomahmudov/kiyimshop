@@ -1,0 +1,39 @@
+name: Telegram kanaldan yangilash
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - ".github/workflows/sync.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *" # har 6 soatda yangi postlarni oladi
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tg-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Kanalni o'qish va rasmlarni yuklash
+        run: python scripts/sync_telegram.py
+      - name: O'zgarishlarni saqlash
+        run: |
+          git config user.name "kwert-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images products.json
+          if git diff --cached --quiet; then echo "O'zgarish yo'q"; exit 0; fi
+          git commit -m "Telegram kanaldan yangilandi: $(date -u +%F)"
+          git pull --rebase origin main
+          git push

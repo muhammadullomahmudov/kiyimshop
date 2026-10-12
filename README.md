@@ -23,3 +23,10 @@ postRaqami|Nomi|turkum|narx|rasmlarSoni
 ```
 
 Turkumlar: `hoodie`, `jacket`, `top`, `pants`, `shoes`, `acc`, `drop`.
+
+## Rasmlar va ma'lumotlar avtomatik yangilanadi
+
+`.github/workflows/sync.yml` har 6 soatda (va qo'lda: **Actions → Telegram kanaldan yangilash → Run workflow**)
+`scripts/sync_telegram.py` ni ishga tushiradi. Skript t.me/kwert_wear kanalining barcha postlarini o'qiydi,
+rasmlarni `images/` papkaga yuklaydi va narx, matn, rasmlar ro'yxatini `products.json` ga yozadi.
+Sayt shu faylni o'qiydi — kanalga yangi post qo'yilsa, saytga o'zi qo'shiladi.
