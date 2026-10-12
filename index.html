@@ -20,6 +20,8 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{background:var(--ink);color:var(--bone);font-family:var(--f-body);font-size:15px;line-height:1.55;margin:0;overflow-x:hidden}
@@ -109,6 +111,7 @@ h2 em{font-style:normal;color:var(--atlas)}
 .card .nm{font-weight:600;font-size:16px;line-height:1.25}
 .card .pr{font-family:var(--f-display);font-stretch:120%;font-weight:800;font-size:22px;margin-top:6px;font-variant-numeric:tabular-nums}
 .card .pr small{font-family:var(--f-body);font-weight:500;font-size:12px;color:var(--mute);margin-left:4px}
+@media (max-width:540px){.grid{grid-template-columns:1fr 1fr;gap:10px}.card .body{padding:10px 12px 12px}.card .nm{font-size:14px}.card .pr{font-size:18px}.card .pr small{display:block;margin:0}.card .ph,.card .new{font-size:9px}}
 .more{display:flex;justify-content:center;margin-top:30px}
 .empty{padding:40px;text-align:center;color:var(--mute);border:1px dashed var(--line);border-radius:var(--r)}
 
@@ -258,7 +261,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="wrap">
       <div class="sh">
         <div><div class="eyebrow mono">Katalog</div><h2>Hamma <em>drop</em>lar</h2></div>
-        <p style="color:var(--mute);max-width:40ch;margin:0">Har bir model Telegram kanaldagi postdan olingan. Rasmlarni ko'rish uchun kartani oching va «Rasmlar» tugmasini bosing.</p>
+        <p style="color:var(--mute);max-width:40ch;margin:0">Hamma model, rasm va narx Telegram kanalimizdan olingan va har 6 soatda o'zi yangilanadi. Kartani oching: barcha rasmlar, o'lcham va buyurtma o'sha yerda.</p>
       </div>
       <div class="toolbar">
         <div class="chips" id="chips" role="group" aria-label="Turkum"></div>
@@ -393,148 +396,148 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <script>
 (()=>{
 /* ---------- DATA (t.me/kwert_wear postlaridan) ---------- */
-const RAW=`412|Ustki kiyim (set)|top|159000|2
-412.2|Shim (set)|pants|129000|2
-411|Ustki kiyim (kombo)|top|200000|1
-411.2|Shim (kombo)|pants|180000|1
-411.3|Futbolka (kombo)|top|50000|1
-411.4|Krossovka (kombo)|shoes|170000|1
-397|Drop №397|drop|49000|10
-388|Drop №388|drop|299000|9
-387|Drop №387|drop|34000|1
-386|Death Note|top|80000|1
-376|Drop №376|drop|180000|10
-366|Drop №366|drop|250000|10
-360|Drop №360|drop|199000|6
+const RAW=`412|Zip xudi (qora set)|hoodie|159000|2
+412.2|Shim (qora set)|pants|129000|2
+411|Kulrang trikotaj kardigan|top|200000|1
+411.2|Kulrang klassik shim|pants|180000|1
+411.3|Oq futbolka|top|50000|1
+411.4|Oq krossovka|shoes|170000|1
+397|Anime telefon g'ilofi|acc|49000|10
+388|Jordan 1 High (to'q ko'k)|shoes|299000|9
+387|Naruto marjonlari|acc|34000|1
+386|Death Note bloknot|acc|80000|1
+376|Tokyo Ghoul xudi (pushti)|hoodie|180000|10
+366|Jujutsu Kaisen vintage xudi|hoodie|250000|10
+360|Jujutsu Kaisen zip xudi|hoodie|199000|6
 350|Titanlar hujumi xudi|hoodie|199000|10
 340|Titanlar hujumi xudi II|hoodie|199000|10
-335|Drop №335|drop|50000|5
-331|Drop №331|drop|180000|4
-328|Drop №328|drop|180000|3
-324|Drop №324|drop|120000|4
-317|Drop №317|drop|150000|3
+335|Anime telefon g'ilofi (oq)|acc|50000|5
+331|Oq zip xudi (imzo print)|hoodie|180000|4
+328|Oq zip xudi (sakura)|hoodie|180000|3
+324|Shark ryukzak|acc|120000|4
+317|Titanlar hujumi ryukzak|acc|150000|3
 312|Drop №312|drop|150000|1
-308|Drop №308|drop|79000|4
-306|Drop №306|drop|110000|2
-300|Drop №300|drop|110000|2
-297|Drop №297|drop|148000|3
-291|Drop №291|drop|80000|2
-288|Drop №288|drop|180000|3
-284|Drop №284|drop|210000|1
-281|Drop №281|drop|140000|3
-277|Y2K soat|acc|200000|4
-267|Drop №267|drop|40000|10
-265|Drop №265|drop|200000|2
-263|Drop №263|drop|149000|2
-261|Drop №261|drop|200000|1
-258|Drop №258|drop|130000|3
-256|Drop №256|drop|140000|2
-249|Drop №249|drop|220000|7
-246|Drop №246|drop|80000|2
-244|Drop №244|drop|170000|2
-239|Drop №239|drop|120000|5
-236|Unisex drop №236|drop|190000|3
-234|Drop №234|drop|170000|2
-230|Drop №230|drop|220000|4
-228|Drop №228|drop|199000|2
-226|Drop №226|drop|189000|2
-222|Drop №222|drop|159000|4
-220|Drop №220|drop|139000|2
-211|Drop №211|drop|229000|4
-204|Drop №204|drop|199000|7
-199|Drop №199|drop|189000|3
-197|Drop №197|drop|139000|2
-184|Drop №184|drop|99000|10
-180|Drop №180|drop|189000|4
-176|Drop №176|drop|189000|3
-173|Drop №173|drop|179000|3
-170|Drop №170|drop|139000|3
-168|Drop №168|drop|139000|2
-161|Drop №161|drop|250000|7
-156|Drop №156|drop|139000|2
-151|Drop №151|drop|70000|2
-149|Drop №149|drop|140000|2
-147|Drop №147|drop|150000|2
-145|Drop №145|drop|50000|2
-141|Drop №141|drop|90000|2
-138|Kuz uchun xudi|hoodie|109000|3
-136|Drop №136|drop|109000|2
-134|NASA vetrovka|jacket|200000|2
-132|Drop №132|drop|179000|1
-131|Baggy jeans (kuz)|pants|189000|1
-130|Drop №130|drop|199000|1
-127|Drop №127|drop|150000|3
-126|Drop №126|drop|200000|1
-124|Porsche kurtka (koja)|jacket|240000|2
-121|Red Bull kurtka|jacket|270000|3
-118|Drop №118|drop|200000|2
-117|Drop №117|drop|170000|1
-115|Drop №115|drop|270000|1
-114|Drop №114|drop|160000|1
-111|Drop №111|drop|150000|1
-110|Drop №110|drop|170000|1
-109|Drop №109|drop|200000|1
-108|Drop №108|drop|30000|1
-106|Drop №106|drop|250000|2
-104|Drop №104|drop|180000|2
-102|Drop №102|drop|200000|2
-99|Drop №99|drop|200000|3
-98|Drop №98|drop|140000|1
-97|Drop №97|drop|150000|1
-95|Porsche kurtka|jacket|280000|2
-94|Drop №94|drop|200000|1
-93|Anime xudi|hoodie|190000|1
-89|Drop №89|drop|300000|4
-86|Drop №86|drop|270000|3
-85|Drop №85|drop|100000|1
-84|Drop №84|drop|170000|1
-83|Drop №83|drop|170000|1
-82|Drop №82|drop|250000|1
-81|Drop №81|drop|270000|1
-80|Drop №80|drop|200000|1
-78|Drop №78|drop|220000|2
-76|Drop №76|drop|250000|2
-75|Drop №75|drop|100000|1
-74|Drop №74|drop|150000|1
-73|Drop №73|drop|190000|1
-72|Drop №72|drop|190000|1
-68|Drop №68 · a'lo sifat|drop|190000|1
-65|Baggy jeans|pants|170000|3
-64|Kuz uchun kurtka|jacket|250000|1
-62|Drop №62 · standart|drop|120000|2
-61|Kuzgi xudi|hoodie|100000|1
-59|Ferrari kurtka|jacket|270000|2
+308|Kompression futbolka (oq)|top|79000|4
+306|Gotik print baggy shim|pants|110000|2
+300|Mini printer (pushti)|acc|110000|2
+297|Qora jogger shim|pants|148000|3
+291|AC Milan zip sviter|top|80000|2
+288|Retro track kurtka (yashil)|jacket|180000|3
+284|Lampasli baggy jinsi|pants|210000|1
+281|Yulduzli ryukzak (kulrang)|acc|140000|3
+277|Gotik naqshli soat|acc|200000|4
+267|Kumush kastet marjon|acc|40000|10
+265|Qora xudi + shim set|hoodie|200000|2
+263|Kulrang gotik print shim|pants|149000|2
+261|Qora zipli kurtka (kamarli)|jacket|200000|1
+258|Oq oversize longsliv|top|130000|3
+256|Qora jilet|jacket|140000|2
+249|DC krossovka|shoes|220000|7
+246|Vintage gotik kepka|acc|80000|2
+244|Yulduzli layered longsliv|top|170000|2
+239|"THANKS" sviter (100% paxta)|top|120000|5
+236|Baggy jinsi (ko'k)|pants|190000|3
+234|Krossovka (jigarrang-oq)|shoes|170000|2
+230|Bordo charm kurtka|jacket|220000|4
+228|Qora kurtka (ilgakli)|jacket|199000|2
+226|Qora charm kurtka|jacket|189000|2
+222|Kulrang balaklava zip xudi|hoodie|159000|4
+220|Oq track kurtka|jacket|139000|2
+211|Charm moto kurtka|jacket|229000|4
+204|Oq Air Force krossovka|shoes|199000|7
+199|Retro track kurtka (oq)|jacket|189000|3
+197|Sakura zip xudi (kulrang)|hoodie|139000|2
+184|PSG yarim zip sviter|top|99000|10
+180|Qora charm bomber|jacket|189000|4
+176|Qora zip sviter (scuba)|top|189000|3
+173|Kulrang trikotaj zip kardigan|top|179000|3
+170|Jigarrang charm kurtka|jacket|139000|3
+168|Qora yarim zip sviter|top|139000|2
+161|Bape zip xudi (kamuflyaj)|hoodie|250000|7
+156|Barcelona × Spotify sviter (kulrang)|top|139000|2
+151|Gotik ko'zoynak|acc|70000|2
+149|Qora baggy jinsi|pants|140000|2
+147|Varsity kurtka|jacket|150000|2
+145|Gotik print shapka|acc|50000|2
+141|Barcelona × Spotify sport kofta|top|90000|2
+138|Kuz uchun xudi (bordo)|hoodie|109000|3
+136|"Imagination" zip kofta|jacket|109000|2
+134|NASA bomber (kulrang)|jacket|200000|2
+132|Ferrari F1 svitshot|top|179000|1
+131|Baggy jinsi (barrel)|pants|189000|1
+130|F1 poyga kurtkasi (oq)|jacket|199000|1
+127|Vintage xudi "37"|hoodie|150000|3
+126|Route 66 charm kurtka|jacket|200000|1
+124|Porsche charm kurtka|jacket|240000|2
+121|Red Bull F1 kurtka|jacket|270000|3
+118|Och ko'k baggy jinsi|pants|200000|2
+117|Ferrari F1 svitshot II|top|170000|1
+115|Motor Racing charm kurtka|jacket|270000|1
+114|Racing longsliv (qora)|top|160000|1
+111|Qora track kurtka|jacket|150000|1
+110|Man City yarim zip sviter|top|170000|1
+109|Mercedes racing kurtka|jacket|200000|1
+108|Yurak-qilich marjon|acc|30000|1
+106|Porsche poyga kurtkasi|jacket|250000|2
+104|Qora trikotaj kardigan|top|180000|2
+102|NASA bomber (to'q ko'k)|jacket|200000|2
+99|Qora baggy jinsi (keng)|pants|200000|3
+98|Qora gotik xudi|hoodie|140000|1
+97|Qora graffiti xudi|hoodie|150000|1
+95|Porsche charm kurtka II|jacket|280000|2
+94|Superstar krossovka (qora)|shoes|200000|1
+93|Anime ko'zli xudi|hoodie|190000|1
+89|Qora lak tufli|shoes|300000|4
+86|Tom & Jerry kedi|shoes|270000|3
+85|Yohji Yamamoto longsliv|top|100000|1
+84|Nirvana xudi|hoodie|170000|1
+83|"Awkward Glance" svitshot|top|170000|1
+82|Krossovka (oq-ko'k)|shoes|250000|1
+81|Samba uslubidagi krossovka|shoes|270000|1
+80|Warrior krossovka|shoes|200000|1
+78|Graffiti krossovka (oq)|shoes|220000|2
+76|Yulduzli krossovka|shoes|250000|2
+75|Berserk longsliv|top|100000|1
+74|"Lucky" xudi (oq)|hoodie|150000|1
+73|Qizil kapyushonli xudi|hoodie|190000|1
+72|Krossovka (qora-oq)|shoes|190000|1
+68|Qora krossovka (G5)|shoes|190000|1
+65|Baggy jinsi (vintage)|pants|170000|3
+64|Moto charm kurtka|jacket|250000|1
+62|Ko'zli crop xudi|hoodie|120000|2
+61|Oq print svitshot|top|100000|1
+59|Ferrari F1 kurtka|jacket|270000|2
 58|Premium drop (video)|drop|600000|1
-57|Drop №57|drop|200000|1
-56|Drop №56|drop|165000|1
-55|Klassik uslub|top|140000|1
-51|Kuzgi xudi|hoodie|100000|2
-49|Anime xudi|hoodie|140000|2
-48|Drop №48|drop|125000|1
-47|Buggy jeans|pants|150000|1
-44|Y2K xudi|hoodie|120000|3
-42|Spotify xudi · 100% paxta|hoodie|150000|2
-36|Fajiaojia Red|top|86000|4
-35|Brocade tugmali ko'ylak|top|130000|1
-34|Europe Y2K|top|175000|1
-33|Kashtali krossovka|shoes|400000|1
-32|Oversize futbolka|top|160000|1
-29|Niche skeyt krossovka|shoes|189000|2
-27|Drop №27|drop|59000|2
-26|Drop №26 · yuqori sifat|drop|186000|1
-25|Qishki jinsi|pants|155000|1
+57|Sakura kashtali jinsi|pants|200000|1
+56|Samba uslubidagi krossovka (oq)|shoes|165000|1
+55|Keng klassik shim|pants|140000|1
+51|Anime print svitshot|top|100000|2
+49|Ko'zli anime xudi|hoodie|140000|2
+48|Varsity xudi-kurtka|jacket|125000|1
+47|Baggy jinsi (barrel)|pants|150000|1
+44|Farishta print xudi (oq)|hoodie|120000|3
+42|Barcelona × Spotify sviter|top|150000|2
+36|Kumush uzuk|acc|86000|4
+35|Tugmali sport kofta (oq)|jacket|130000|1
+34|Futbolka + shim set|top|175000|1
+33|Kashtali baggy jinsi|pants|400000|1
+32|Japan track kurtka|jacket|160000|1
+29|Skeyt krossovka (to'q ko'k)|shoes|189000|2
+27|Gotik ko'zoynak (qora)|acc|59000|2
+26|Qora gotik xudi|hoodie|186000|1
+25|Kulrang baggy jinsi|pants|155000|1
 24|Qishki oversize xudi|hoodie|175000|1
-23|Oversize xudi|hoodie|165000|1
-22|Drop №22 · yuqori sifat|drop|145000|1
-21|AJ1 Black-Purple|shoes|190000|1
-20|Domo-kun|top|89000|1
-18|Streetwear hip-hop|top|130000|1
-17|Winter trend 2026|drop|110000|1
-16|Export label drop|drop|100000|1
-12|Y2K Gothic sumka|acc|150000|3
-10|Kuzgi vetrovka|jacket|170000|2
+23|Farishta print oversize xudi|hoodie|165000|1
+22|"Blast" xudi|hoodie|145000|1
+21|Jordan 1 Low (qora-binafsha)|shoes|190000|1
+20|Domo-kun futbolka|top|89000|1
+18|Baggy jinsi (hip-hop)|pants|130000|1
+17|Bosh suyak svitshot|top|110000|1
+16|Bon Jovi longsliv|top|100000|1
+12|Gotik kashtali shim|pants|150000|3
+10|Qora zip xudi (chiziqli)|hoodie|170000|2
 7|Anime xudi|hoodie|170000|3`;
-const CATS={all:"Hammasi",hoodie:"Xudi",jacket:"Kurtka",top:"Futbolka / ustki",pants:"Shim / jinsi",shoes:"Krossovka",acc:"Aksessuar",drop:"Boshqa droplar"};
+const CATS={all:"Hammasi",hoodie:"Xudi",jacket:"Kurtka",top:"Futbolka / sviter",pants:"Shim / jinsi",shoes:"Krossovka",acc:"Aksessuar",drop:"Boshqa droplar"};
 const WEIGHT={hoodie:700,jacket:900,top:250,pants:600,shoes:1200,acc:300,drop:500};
 const SIZES={shoes:["38","39","40","41","42","43","44","45"],acc:["Standart"],def:["XS","S","M","L","XL","XXL","3XL","4XL"]};
 const P=RAW.trim().split("\n").map((l,i)=>{const [id,name,cat,price,ph]=l.split("|");return{key:id,post:id.split(".")[0],name,cat,price:+price,photos:+ph,order:i}});
