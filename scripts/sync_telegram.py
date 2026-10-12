@@ -123,6 +123,9 @@ def parse_prices(text):
     m = re.search(r"([\d]{2,3}[ .,]?000)\s*(uzs|so'm|som|сум|\+)", text, re.I)
     if m:
         return [{"emoji": "", "price": num(m.group(1))}]
+    m = re.search(r"(?:^|\s)(\d{2,3})\s*\+\s*(kargo|cargo|yetkaz|dostavka)?", text, re.I | re.M)
+    if m:
+        return [{"emoji": "", "price": num(m.group(1))}]
     return []
 
 
@@ -140,6 +143,10 @@ def guess(text):
             cat = c
             break
     return name, cat
+
+
+def cleanDesc(text):
+    return "\n".join(l for l in (text or "").split("\n") if l.strip() and not SKIP.search(l)).strip()
 
 
 def save_image(url, path):
@@ -183,6 +190,21 @@ def main():
         time.sleep(1.2)
     posts.sort(key=lambda p: -p["id"])
     print("postlar:", len(posts))
+
+    # Matni alohida, rasmlari alohida post bo'lib tashlangan holatlar:
+    # narxi bor, lekin rasmsiz postga yonidagi narxsiz rasm-postlarni biriktiramiz.
+    asc = sorted(posts, key=lambda p: p["id"])
+    priced = {p["id"]: bool(parse_prices(p["text"])) for p in asc}
+    for idx, p in enumerate(asc):
+        if not priced[p["id"]] or p["photos"]:
+            continue
+        for step in (1, -1):  # avval keyingi postlar, bo'lmasa oldingilari
+            j = idx + step
+            while 0 <= j < len(asc) and not priced[asc[j]["id"]] and asc[j]["photos"] and len(cleanDesc(asc[j]["text"])) < 40:
+                p["photos"] += asc[j]["photos"]
+                j += step
+            if p["photos"]:
+                break
 
     products = []
     for p in posts:
