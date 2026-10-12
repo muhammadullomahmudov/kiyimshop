@@ -1,0 +1,22 @@
+name: Video assets
+on:
+  push:
+    branches: [video-assets]
+    paths: [".github/workflows/assets.yml"]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p lib
+          curl -sSfL -o lib/three.min.js https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js
+          curl -sSfL -o lib/anybody.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/anybody/Anybody%5Bwdth,wght%5D.ttf"
+          curl -sSfL -o lib/onest.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/onest/Onest%5Bwght%5D.ttf"
+          curl -sSfL -o lib/jbm.ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf"
+          ls -la lib
+          git config user.name kwert-bot
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lib && git commit -m "assets" && git push
