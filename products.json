@@ -1,10 +1,29 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-10-14T04:54:17Z",
-  "count": 165
+  "updated": "2026-10-14T11:52:28Z",
+  "count": 166
  },
  "products": [
+  {
+   "post": 525,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 359000
+    }
+   ],
+   "price": 359000,
+   "photos": [
+    "images/525.jpg"
+   ],
+   "video": false,
+   "text": "👀\n⭐️Narx: 359.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-14T06:14:15+00:00",
+   "url": "https://t.me/kwert_wear/525"
+  },
   {
    "post": 523,
    "name": "",
