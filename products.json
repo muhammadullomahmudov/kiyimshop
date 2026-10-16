@@ -1,10 +1,201 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-10-15T21:23:19Z",
-  "count": 181
+  "updated": "2026-10-16T04:32:49Z",
+  "count": 190
  },
  "products": [
+  {
+   "post": 609,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 140000
+    }
+   ],
+   "price": 140000,
+   "photos": [
+    "images/609.jpg",
+    "images/610.jpg",
+    "images/611.jpg",
+    "images/612.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 140.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-16T04:25:05+00:00",
+   "url": "https://t.me/kwert_wear/609"
+  },
+  {
+   "post": 606,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 140000
+    }
+   ],
+   "price": 140000,
+   "photos": [
+    "images/606.jpg",
+    "images/607.jpg",
+    "images/608.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 140.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-16T04:21:21+00:00",
+   "url": "https://t.me/kwert_wear/606"
+  },
+  {
+   "post": 603,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 187000
+    }
+   ],
+   "price": 187000,
+   "photos": [
+    "images/603.jpg",
+    "images/604.jpg",
+    "images/605.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 187.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-16T03:45:23+00:00",
+   "url": "https://t.me/kwert_wear/603"
+  },
+  {
+   "post": 599,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 210000
+    }
+   ],
+   "price": 210000,
+   "photos": [
+    "images/599.jpg",
+    "images/600.jpg",
+    "images/601.jpg",
+    "images/602.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 210.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-16T03:43:43+00:00",
+   "url": "https://t.me/kwert_wear/599"
+  },
+  {
+   "post": 597,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 169000
+    }
+   ],
+   "price": 169000,
+   "photos": [
+    "images/597.jpg",
+    "images/598.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 169.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-16T03:41:56+00:00",
+   "url": "https://t.me/kwert_wear/597"
+  },
+  {
+   "post": 594,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 180000
+    }
+   ],
+   "price": 180000,
+   "photos": [
+    "images/594.jpg",
+    "images/595.jpg",
+    "images/596.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 180.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-16T03:41:15+00:00",
+   "url": "https://t.me/kwert_wear/594"
+  },
+  {
+   "post": 590,
+   "name": "buggy&classic",
+   "cat": "pants",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 178000
+    }
+   ],
+   "price": 178000,
+   "photos": [
+    "images/590.jpg",
+    "images/591.jpg",
+    "images/592.jpg",
+    "images/593.jpg"
+   ],
+   "video": false,
+   "text": "buggy&classic\n⭐️Narx: 178.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-16T03:28:52+00:00",
+   "url": "https://t.me/kwert_wear/590"
+  },
+  {
+   "post": 587,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 180000
+    }
+   ],
+   "price": 180000,
+   "photos": [
+    "images/587.jpg",
+    "images/588.jpg",
+    "images/589.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 180.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-16T03:26:27+00:00",
+   "url": "https://t.me/kwert_wear/587"
+  },
+  {
+   "post": 584,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 140000
+    }
+   ],
+   "price": 140000,
+   "photos": [
+    "images/584.jpg",
+    "images/585.jpg",
+    "images/586.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 140.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-16T03:25:36+00:00",
+   "url": "https://t.me/kwert_wear/584"
+  },
   {
    "post": 579,
    "name": "",
