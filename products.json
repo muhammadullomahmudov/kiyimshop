@@ -1,10 +1,51 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-10-18T20:43:42Z",
-  "count": 227
+  "updated": "2026-10-19T04:40:58Z",
+  "count": 229
  },
  "products": [
+  {
+   "post": 723,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 149000
+    }
+   ],
+   "price": 149000,
+   "photos": [
+    "images/723.jpg",
+    "images/724.jpg",
+    "images/725.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 149.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-19T04:13:38+00:00",
+   "url": "https://t.me/kwert_wear/723"
+  },
+  {
+   "post": 721,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 159000
+    }
+   ],
+   "price": 159000,
+   "photos": [
+    "images/721.jpg",
+    "images/722.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 159.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-19T04:12:18+00:00",
+   "url": "https://t.me/kwert_wear/721"
+  },
   {
    "post": 719,
    "name": "",
