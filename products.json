@@ -1,10 +1,74 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-10-23T04:49:49Z",
-  "count": 242
+  "updated": "2026-10-23T11:39:12Z",
+  "count": 245
  },
  "products": [
+  {
+   "post": 761,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 170000
+    }
+   ],
+   "price": 170000,
+   "photos": [
+    "images/761.jpg",
+    "images/762.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 170.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-23T05:40:32+00:00",
+   "url": "https://t.me/kwert_wear/761"
+  },
+  {
+   "post": 758,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 200000
+    }
+   ],
+   "price": 200000,
+   "photos": [
+    "images/758.jpg",
+    "images/759.jpg",
+    "images/760.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 200.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-23T05:39:44+00:00",
+   "url": "https://t.me/kwert_wear/758"
+  },
+  {
+   "post": 757,
+   "name": "Alohida olmoqchi bo’lsangiz",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "👕",
+     "price": 180000
+    },
+    {
+     "emoji": "👖",
+     "price": 150000
+    }
+   ],
+   "price": 180000,
+   "photos": [
+    "images/757.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 299.000 uzs+cargo\nAlohida olmoqchi bo’lsangiz\n👕 180.000 uzs+ cargo\n👖 150.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-23T05:38:24+00:00",
+   "url": "https://t.me/kwert_wear/757"
+  },
   {
    "post": 754,
    "name": "",
