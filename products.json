@@ -1,10 +1,41 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-10-24T04:36:46Z",
-  "count": 245
+  "updated": "2026-10-24T11:00:24Z",
+  "count": 246
  },
  "products": [
+  {
+   "post": 763,
+   "name": "Alohida",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "👕",
+     "price": 275000
+    },
+    {
+     "emoji": "👖",
+     "price": 170000
+    },
+    {
+     "emoji": "👕",
+     "price": 80000
+    },
+    {
+     "emoji": "👟",
+     "price": 149000
+    }
+   ],
+   "price": 275000,
+   "photos": [
+    "images/763.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 650.000 uzs+cargo\nAlohida:\n👕 275.000+ kargo\n👖 170.000 + kargo\n👕 80.000 + kargo\n👟 149.000+ kargo\n\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-24T05:05:24+00:00",
+   "url": "https://t.me/kwert_wear/763"
+  },
   {
    "post": 761,
    "name": "",
