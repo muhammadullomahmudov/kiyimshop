@@ -1,10 +1,64 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-10-25T16:19:34Z",
-  "count": 251
+  "updated": "2026-10-25T20:52:03Z",
+  "count": 253
  },
  "products": [
+  {
+   "post": 782,
+   "name": "Skidkada!",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "👖",
+     "price": 139000
+    },
+    {
+     "emoji": "👕",
+     "price": 120000
+    },
+    {
+     "emoji": "👟",
+     "price": 149000
+    }
+   ],
+   "price": 139000,
+   "photos": [
+    "images/782.jpg"
+   ],
+   "video": false,
+   "text": "Skidkada!\n⭐️Narx: 570.000 uzs+cargo\nAlohida:\n👔 275.000+ kargo\n👖 139.000 + kargo\n👕 120.000 + kargo\n👟 149.000+ kargo\n\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-25T16:51:08+00:00",
+   "url": "https://t.me/kwert_wear/782"
+  },
+  {
+   "post": 780,
+   "name": "Sifat ideal",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "👖",
+     "price": 140000
+    },
+    {
+     "emoji": "👕",
+     "price": 120000
+    },
+    {
+     "emoji": "👟",
+     "price": 189000
+    }
+   ],
+   "price": 140000,
+   "photos": [
+    "images/780.jpg"
+   ],
+   "video": false,
+   "text": "Sifat ideal🌟\n⭐️Narx: 550.000 uzs+cargo\nAlohida:\n👔 175.000+ kargo\n👖 140.000 + kargo\n👕 120.000 + kargo\n👟 189.000+ kargo\n\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-25T16:44:12+00:00",
+   "url": "https://t.me/kwert_wear/780"
+  },
   {
    "post": 778,
    "name": "Sifat ideal",
