@@ -1,10 +1,123 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-10-25T04:41:45Z",
-  "count": 246
+  "updated": "2026-10-25T11:29:14Z",
+  "count": 251
  },
  "products": [
+  {
+   "post": 778,
+   "name": "Sifat ideal",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "👖",
+     "price": 140000
+    },
+    {
+     "emoji": "👕",
+     "price": 120000
+    },
+    {
+     "emoji": "👟",
+     "price": 149000
+    }
+   ],
+   "price": 140000,
+   "photos": [
+    "images/778.jpg"
+   ],
+   "video": false,
+   "text": "Sifat ideal🌟\n⭐️Narx: 550.000 uzs+cargo\nAlohida:\n👔 175.000+ kargo\n👖 140.000 + kargo\n👕 120.000 + kargo\n👟 149.000+ kargo\n\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-25T10:41:50+00:00",
+   "url": "https://t.me/kwert_wear/778"
+  },
+  {
+   "post": 775,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 180000
+    }
+   ],
+   "price": 180000,
+   "photos": [
+    "images/775.jpg",
+    "images/776.jpg",
+    "images/777.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 180.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-25T04:50:11+00:00",
+   "url": "https://t.me/kwert_wear/775"
+  },
+  {
+   "post": 772,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 190000
+    }
+   ],
+   "price": 190000,
+   "photos": [
+    "images/772.jpg",
+    "images/773.jpg",
+    "images/774.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 190.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-25T04:49:08+00:00",
+   "url": "https://t.me/kwert_wear/772"
+  },
+  {
+   "post": 768,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 180000
+    }
+   ],
+   "price": 180000,
+   "photos": [
+    "images/768.jpg",
+    "images/769.jpg",
+    "images/770.jpg",
+    "images/771.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 180.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-25T04:46:49+00:00",
+   "url": "https://t.me/kwert_wear/768"
+  },
+  {
+   "post": 764,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 150000
+    }
+   ],
+   "price": 150000,
+   "photos": [
+    "images/764.jpg",
+    "images/765.jpg",
+    "images/766.jpg",
+    "images/767.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 150.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-25T04:45:04+00:00",
+   "url": "https://t.me/kwert_wear/764"
+  },
   {
    "post": 763,
    "name": "Alohida",
