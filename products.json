@@ -1,10 +1,52 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-10-26T04:47:22Z",
-  "count": 253
+  "updated": "2026-10-26T13:02:57Z",
+  "count": 255
  },
  "products": [
+  {
+   "post": 791,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 169000
+    }
+   ],
+   "price": 169000,
+   "photos": [
+    "images/791.jpg",
+    "images/792.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 169.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-26T13:01:15+00:00",
+   "url": "https://t.me/kwert_wear/791"
+  },
+  {
+   "post": 784,
+   "name": "qish uchun premium sifat",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 170000
+    }
+   ],
+   "price": 170000,
+   "photos": [
+    "images/784.jpg",
+    "images/785.jpg",
+    "images/786.jpg",
+    "images/787.jpg"
+   ],
+   "video": false,
+   "text": "qish uchun premium sifat\n⭐️Narx: 170.000 uzs+cargo\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-26T12:58:48+00:00",
+   "url": "https://t.me/kwert_wear/784"
+  },
   {
    "post": 782,
    "name": "Skidkada!",
