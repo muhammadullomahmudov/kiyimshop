@@ -1,10 +1,37 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-10-27T05:05:05Z",
-  "count": 267
+  "updated": "2026-10-27T12:12:18Z",
+  "count": 268
  },
  "products": [
+  {
+   "post": 829,
+   "name": "Sifat ideal",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "👖",
+     "price": 140000
+    },
+    {
+     "emoji": "👕",
+     "price": 120000
+    },
+    {
+     "emoji": "👟",
+     "price": 139000
+    }
+   ],
+   "price": 140000,
+   "photos": [
+    "images/829.jpg"
+   ],
+   "video": false,
+   "text": "Sifat ideal🌟\n⭐️Narx: 600.000 uzs+cargo\nAlohida:\n👔 275.000+ kargo\n👖 140.000 + kargo\n👕 120.000 + kargo\n👟 139.000+ kargo\n\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-27T05:37:21+00:00",
+   "url": "https://t.me/kwert_wear/829"
+  },
   {
    "post": 827,
    "name": "",
