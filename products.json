@@ -1,10 +1,31 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-10-27T18:02:54Z",
-  "count": 275
+  "updated": "2026-10-27T22:15:21Z",
+  "count": 276
  },
  "products": [
+  {
+   "post": 860,
+   "name": "PREMIUM SIFAT",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 160000
+    }
+   ],
+   "price": 160000,
+   "photos": [
+    "images/860.jpg",
+    "images/861.jpg",
+    "images/862.jpg"
+   ],
+   "video": false,
+   "text": "PREMIUM SIFAT✅️\n⭐️Narx: 160.000 uzs+cargo\n🌟 Oldindan tolov 50%\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-10-27T18:02:24+00:00",
+   "url": "https://t.me/kwert_wear/860"
+  },
   {
    "post": 857,
    "name": "",
