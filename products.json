@@ -1,10 +1,33 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-11-03T00:58:59Z",
-  "count": 307
+  "updated": "2026-11-03T14:14:44Z",
+  "count": 308
  },
  "products": [
+  {
+   "post": 938,
+   "name": "PREMIUM KACHESTVA",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "👖",
+     "price": 90000
+    },
+    {
+     "emoji": "👟",
+     "price": 160000
+    }
+   ],
+   "price": 90000,
+   "photos": [
+    "images/938.jpg"
+   ],
+   "video": false,
+   "text": "PREMIUM KACHESTVA✅️\n⭐️Narx: 550.000 uzs+cargo💥\nAlohida:\n👔 190.000+ kargo\n👖 90.000+ kargo\n👔 130.000+ kargo\n👟 160.000+ kargo\n🌟 Oldindan tolov 50%\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-11-03T03:32:52+00:00",
+   "url": "https://t.me/kwert_wear/938"
+  },
   {
    "post": 937,
    "name": "PREMIUM KACHESTVA",
