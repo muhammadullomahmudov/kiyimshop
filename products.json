@@ -1,10 +1,33 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-11-06T06:45:42Z",
-  "count": 323
+  "updated": "2026-11-06T19:25:54Z",
+  "count": 324
  },
  "products": [
+  {
+   "post": 987,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 170000
+    }
+   ],
+   "price": 170000,
+   "photos": [
+    "images/987.jpg",
+    "images/988.jpg",
+    "images/989.jpg",
+    "images/990.jpg",
+    "images/991.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 170.000 uzs+cargo\n🌟 Oldindan tolov 50%\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\nRAZMER:L-5XL\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-11-06T11:22:41+00:00",
+   "url": "https://t.me/kwert_wear/987"
+  },
   {
    "post": 982,
    "name": "",
