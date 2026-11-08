@@ -1,10 +1,35 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-11-07T21:51:27Z",
-  "count": 331
+  "updated": "2026-11-08T06:01:15Z",
+  "count": 332
  },
  "products": [
+  {
+   "post": 1020,
+   "name": "Kojasi bilan osangiz",
+   "cat": "jacket",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 320000
+    }
+   ],
+   "price": 320000,
+   "photos": [
+    "images/1020.jpg",
+    "images/1021.jpg",
+    "images/1022.jpg",
+    "images/1023.jpg",
+    "images/1024.jpg",
+    "images/1025.jpg",
+    "images/1026.jpg"
+   ],
+   "video": false,
+   "text": "Kojasi bilan osangiz😍\nSifati rasm dagi bilan bir xil yetib keladi\n⭐️Narx: 320.000 uzs+cargo\n🌟 Oldindan tolov 50%\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-11-07T22:04:00+00:00",
+   "url": "https://t.me/kwert_wear/1020"
+  },
   {
    "post": 1016,
    "name": "",
