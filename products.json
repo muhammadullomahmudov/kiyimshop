@@ -1,10 +1,56 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-11-16T06:29:03Z",
-  "count": 355
+  "updated": "2026-11-16T22:02:34Z",
+  "count": 357
  },
  "products": [
+  {
+   "post": 1103,
+   "name": "PREMIUM KACHESTVA",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "👖",
+     "price": 180000
+    },
+    {
+     "emoji": "👟",
+     "price": 170000
+    }
+   ],
+   "price": 180000,
+   "photos": [
+    "images/1103.jpg"
+   ],
+   "video": false,
+   "text": "PREMIUM KACHESTVA✅️😍\n⭐️Narx: 599.000 uzs+cargo💥\nAlohida:\n👔 275.000+ kargo\n👖 180.000+ kargo\n👟 170.000+ kargo\n🌟 Oldindan tolov 50%\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-11-16T18:28:16+00:00",
+   "url": "https://t.me/kwert_wear/1103"
+  },
+  {
+   "post": 1102,
+   "name": "PREMIUM KACHESTVA",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "👖",
+     "price": 180000
+    },
+    {
+     "emoji": "👟",
+     "price": 209000
+    }
+   ],
+   "price": 180000,
+   "photos": [
+    "images/1102.jpg"
+   ],
+   "video": false,
+   "text": "PREMIUM KACHESTVA✅️😍\n⭐️Narx: 549.000 uzs+cargo💥\nAlohida:\n👔 190.000+ kargo\n👖 180.000+ kargo\n👟 209.000+ kargo\n🌟 Oldindan tolov 50%\n🌟Cargo: 13.000 100gr\n🚐5-11 kun✈️\n• Kwert🇺🇿•otziv\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-11-16T18:27:29+00:00",
+   "url": "https://t.me/kwert_wear/1102"
+  },
   {
    "post": 1101,
    "name": "PREMIUM KACHESTVA",
