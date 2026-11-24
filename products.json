@@ -1,10 +1,52 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-11-23T23:54:14Z",
-  "count": 361
+  "updated": "2026-11-24T09:55:31Z",
+  "count": 363
  },
  "products": [
+  {
+   "post": 1119,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 290000
+    }
+   ],
+   "price": 290000,
+   "photos": [
+    "images/1119.jpg",
+    "images/1120.jpg",
+    "images/1121.jpg",
+    "images/1122.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 290.000 uzs+cargo\n❤️Oldindan tolov 50%\n🌟Cargo: 13.000 100gr\n🚐5-10 kun✈️\n• Kwert🇺🇿•otziv\nRAZMER: M-3XL\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-11-24T05:19:25+00:00",
+   "url": "https://t.me/kwert_wear/1119"
+  },
+  {
+   "post": 1117,
+   "name": "",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 180000
+    }
+   ],
+   "price": 180000,
+   "photos": [
+    "images/1117.jpg",
+    "images/1118.jpg"
+   ],
+   "video": false,
+   "text": "⭐️Narx: 180.000 uzs+cargo\n❤️Oldindan tolov 50%\n🌟Cargo: 13.000 100gr\n🚐5-10 kun✈️\n• Kwert🇺🇿•otziv\nRAZMER: M-2XL\n\nBuyurtma uchun - @kwert_admin ❤",
+   "date": "2026-11-24T05:18:35+00:00",
+   "url": "https://t.me/kwert_wear/1117"
+  },
   {
    "post": 1115,
    "name": "PREMIUM KACHESTVA",
