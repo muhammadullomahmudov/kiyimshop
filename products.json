@@ -1,10 +1,31 @@
 {
  "meta": {
   "channel": "kwert_wear",
-  "updated": "2026-11-26T08:18:08Z",
-  "count": 363
+  "updated": "2026-11-26T21:32:42Z",
+  "count": 364
  },
  "products": [
+  {
+   "post": 1125,
+   "name": "Nalichi tavar",
+   "cat": "drop",
+   "prices": [
+    {
+     "emoji": "",
+     "price": 170000
+    }
+   ],
+   "price": 170000,
+   "photos": [
+    "images/1125.jpg",
+    "images/1126.jpg",
+    "images/1127.jpg"
+   ],
+   "video": false,
+   "text": "Nalichi tavar🏪\nNarx: 170.000✅\nRazmer: XL\nYetkazib berish 1-2 kun bts orqali",
+   "date": "2026-11-26T10:03:23+00:00",
+   "url": "https://t.me/kwert_wear/1125"
+  },
   {
    "post": 1119,
    "name": "",
